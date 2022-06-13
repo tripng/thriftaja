@@ -19,6 +19,7 @@ class TestimoniFactory extends Factory
         return [
             'komentar' => $this->faker->paragraph(),
             'rating' => $this->faker->randomElement(['⭐⭐⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐','⭐⭐','⭐']),
+            'barang_id' => mt_rand(1,10),
         ];
     }
 }

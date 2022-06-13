@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('barang_id');
             $table->text('komentar');
             $table->string('rating');
             $table->timestamps();

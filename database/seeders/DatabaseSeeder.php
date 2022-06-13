@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         Barang::factory(10)->create();
         User::factory(10)->create();
-        Testimoni::factory(10)->create();
+        Testimoni::factory(5)->create();
 
         
         // \App\Models\User::factory()->create([
