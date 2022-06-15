@@ -10,8 +10,7 @@ class Barang extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    // public function testimoni(){
-        // return $this->hasMany(Testimoni::class);
-    // }
-    
+    public function testimoni(){
+        return $this->hasMany(Testimoni::class);
+    }
 }

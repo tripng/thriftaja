@@ -10,7 +10,10 @@ class Testimoni extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    // public function barang(){
-    //     return $this->belogsTo(Barang::class);
-    // }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function barang(){
+        return $this->belongsTo(Barang::class);
+    }
 }
