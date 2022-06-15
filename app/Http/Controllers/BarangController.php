@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
 {
@@ -46,26 +47,20 @@ class BarangController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validate = $request->validate([
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'harga' => 'required',
             'stok' => 'required',
             'foto' => 'required',
             'keterangan' => 'required',
-
         ]);
 
-        $input = $request->all();
+        // $input = $request->all();
 
-        if ($image = $request->file('foto')) {
-            $destinationPath = 'img/barang/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['foto'] = "$profileImage";
-        }
-
-        Barang::create($input);
+        $validate['foto'] = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storePubliclyAs('image',$request->file('foto')->getClientOriginalName(),'public');
+        Barang::create($validate);
 
         return redirect()->route('barang.index')
                         ->with('success','Gedung created successfully.');
@@ -175,10 +170,13 @@ class BarangController extends Controller
      */
 
     public function destroy(Barang $barang)
-
     {
+        if(Storage::exists('public/image/'.$barang->foto)){
+            Storage::delete('public/image/'.$barang->foto);
+          }else{
+            dd('File not found.');
+        }
         Barang::destroy($barang->id);
         return redirect()->route('barang.index')->with('success','barang deleted successfully');
-        
     }
 }

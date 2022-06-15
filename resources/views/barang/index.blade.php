@@ -54,7 +54,7 @@
                                     <td> {{ $m->nama_barang}}</td>
                                     <td>Rp.{{ number_format($m->harga,0,'.',',')}}</td>
                                     <td>{{ $m->stok}}</td>
-                                    <td>{{ $m->foto}}</td>
+                                    <td><img src="{{asset('storage/image/'.$m->foto)}}" alt=""></td>
                                     <td>{{ $m->keterangan}}</td>
                                     <td>
                                         <a class="btn btn-info" href="/barang/{{$m->id}}/edit">
