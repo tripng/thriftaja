@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
- <div class="row justify-content-center">
+<div class="row justify-content-center">
     <div class="col-lg-4 rounded float-start">
         <main class="form-signin w-100 m-auto">
             <small class="d-block text-right mt-3">Don't have an account? <a href="/register"> Sign Up</a></small>
@@ -26,5 +26,5 @@
     <div class="card" style="width: 18rem;">
         <img src="{{ asset('img/projek/l2.jpg') }}" class="card-img-top" alt="...">
       </div>
- </div>
+</div>
 @endsection

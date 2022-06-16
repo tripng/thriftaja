@@ -20,46 +20,34 @@
           <i class="mdi mdi-home menu-icon"></i>
         </a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="url" aria-expanded="false" aria-controls="ui-basic">
-          <span class="menu-title">Basic UI Elements</span>
-          <i class="menu-arrow"></i>
-          <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-        </a>
-        <div class="collapse" id="ui-basic">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url('/barang')}}">
-          <span class="menu-title">Barang</span>
+        <a class="nav-link" href="pages/icons/mdi.html">
+          <span class="menu-title">Kategori Barang</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <span class="menu-title">Forms</span>
-          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartjs.html">
-          <span class="menu-title">Charts</span>
+        <a class="nav-link" href="{{ url('/barang') }}">
+          <span class="menu-title">Barang</span>
           <i class="mdi mdi-chart-bar menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/tables/basic-table.html">
-          <span class="menu-title">Tables</span>
+        <a class="nav-link" href="#">
+          <span class="menu-title">Penjualan</span>
+          <i class="mdi mdi-chart-bar menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('pages/basictable') }}">
+          <span class="menu-title">Data Pembeli</span>
           <i class="mdi mdi-table-large menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-          <span class="menu-title">Sample Pages</span>
+        <a class="nav-link" href="pages/forms/basic_elements.html">
+            <span class="menu-title">Akun</span>
           <i class="menu-arrow"></i>
           <i class="mdi mdi-medical-bag menu-icon"></i>
         </a>
@@ -73,22 +61,6 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item sidebar-actions">
-        <span class="nav-link">
-          <div class="border-bottom">
-            <h6 class="font-weight-normal mb-3">Projects</h6>
-          </div>
-          <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-          <div class="mt-4">
-            <div class="border-bottom">
-              <p class="text-secondary">Categories</p>
-            </div>
-            <ul class="gradient-bullet-list mt-4">
-              <li>Free</li>
-              <li>Pro</li>
-            </ul>
-          </div>
-        </span>
-      </li>
+
     </ul>
   </nav>

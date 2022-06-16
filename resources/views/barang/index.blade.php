@@ -39,10 +39,11 @@
                                     <th> No </th>
                                     <th> Kode Barang </th>
                                     <th> Nama Barang </th>
+                                  {{--  <th> Kategori Barang </th> --}}
                                     <th> Harga </th>
                                     <th> Stok </th>
                                     <th> Foto </th>
-                                    <th> Keterangan </th>
+                                    {{--  <th> Keterangan </th> --}}
                                     <th> Action </th>
                                 </tr>
                             </thead>
@@ -52,13 +53,14 @@
                                     <td> {{ ++$i }}</td>
                                     <td>{{ $m->kode_barang}}</td>
                                     <td> {{ $m->nama_barang}}</td>
+                                  {{--  <td> </td>--}}
                                     <td>Rp.{{ number_format($m->harga,0,'.',',')}}</td>
                                     <td>{{ $m->stok}}</td>
                                     <td><img src="{{asset('storage/image/'.$m->foto)}}" alt=""></td>
-                                    <td>{{ $m->keterangan}}</td>
+                                   {{--  <td>{{ $m->keterangan}}</td> --}}
                                     <td>
                                         <a class="btn btn-info" href="/barang/{{$m->id}}/edit">
-                                            <i class="bi bi-eye"></i>
+                                            <i class="bi bi-pencil-square"></i>
                                         </a>
                                         {{-- <a class="btn btn-primary" href="{{ route('barang.edit',$m->id) }}">
                                             <i class="bi bi-pencil-square"> </i>
@@ -67,7 +69,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" onclick="return confirm('Anda Yakin Data dihapus??')" title="Hapus Data Mahasiswa">
-                                                <i class="bi bi-trash"> </i>
+                                                <i class="bi bi-trash3-fill"></i>
                                             </button>
                                         </form>
                                     </td>

@@ -14,4 +14,5 @@ class Barang extends Model
         // return $this->hasMany(Testimoni::class);
     // }
     
+
 }

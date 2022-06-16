@@ -14,7 +14,7 @@ class BarangFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    
+
     public function definition()
     {
         return [
@@ -24,7 +24,7 @@ class BarangFactory extends Factory
             'stok' => $this->faker->randomNumber(2,true),
             'foto' => $this->faker->lexify('???????.jpg'),
             'keterangan' => $this->faker->paragraph(),
-            // 'testimoni_id' => mt_rand(1,5),
+            //'testimoni_id' => mt_rand(1,5),
         ];
     }
 }

@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,26 @@ use App\Http\Controllers\RegisterController;
 */
 
 // Landing Page
-Route::get('/',[PageController::class,'index']);
+Route::get('/',[PageController::class, 'index']);
+
+Route::get('/shop', function () {
+    return view('landingpage.shop');
+});
 
 
+Route::get('/detail', function () {
+    return view('landingpage.detail');
+});
+
+Route::get('/cart', function () {
+    return view('landingpage.cart');
+});
 
 // Admin
 Route::get('/admin',[AdminController::class,'index']);
 
 // Login
 Route::get('/login',[LoginController::class,'index']);
-
-// Registrasi
 Route::get('/register',[RegisterController::class,'index']);
 Route::post('/register',[RegisterController::class,'store']);
 

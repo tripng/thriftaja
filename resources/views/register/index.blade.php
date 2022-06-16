@@ -1,30 +1,22 @@
 @extends('landingpage.index')
 @section('content')
- <div class="row justify-content-center">
+<div class="row justify-content-center">
     <div class="col-lg-5">
         <main class="form-registration w-100 m-auto">
             <h1 class="h3 mb-3 fw-normal text-center ">Create an account</h1>
             <small class="d-block text-center mt-3">Already have an account? <a href="/login"> Login</a></small>
-            <form method="post" action="/register">
-              @csrf
+            <form method="post" action="{{route('register.store')}}">
               <div class="form-floating">
                   <label for="name">Nama</label>
-                <input type="text" name="name" class="form-control rounded-top 
-                  @error('name') is-invalid @enderror" 
-                  
-                  id="name" placeholder="Nama">
+                <input type="text" name="name" class="form-control rounded-top" id="name" placeholder="Nama">
               </div>
               <div class="form-floating">
-                  <label for="name">Username</label>
-                <input type="text" name="username" class="form-control rounded-top" id="name" placeholder="Username">
-              </div>
-              <div class="form-floating"> 
                   <label for="username">No Hp</label>
                 <input type="text" name="no_hp" class="form-control" id="username" placeholder="Hp">
               </div>
               <div class="form-floating">
                   <label for="username">Alamat</label>
-                <input type="text" name="alamat" class="form-control" id="username" placeholder="Alamat">
+                <input type="text" name="alamat" class="form-control" id="username" placeholder="Username">
               </div>
               <div class="form-floating">
                   <label for="email">Email address</label>
@@ -46,4 +38,4 @@
         <img src="{{ asset('img/projek/phone.jpg') }}" class="card-img-top" alt="...">
     </div>
  </div>
-@endsection
+ @endsection
