@@ -15,4 +15,13 @@ class PageController extends Controller
             'product_filter' => collect(['new-arrivals','hot-sales']),
         ]);
     }
+    public function shop(){
+        return view('landingpage.shop');
+    }
+    public function cart(){
+        return view('landingpage.cart');
+    }
+    public function detail(){
+        return view('landingpage.detail');
+    }
 }

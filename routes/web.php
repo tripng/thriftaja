@@ -20,6 +20,10 @@ use App\Http\Controllers\RegisterController;
 
 // Landing Page
 Route::get('/',[PageController::class,'index']);
+Route::get('/home',[PageController::class,'index']);
+Route::get('/shop',[PageController::class,'shop']);
+Route::get('/cart',[PageController::class,'cart']);
+Route::get('/detail',[PageController::class,'detail']);
 
 
 
