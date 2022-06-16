@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" data-bs-toggle="collapse" href="url" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-title">Basic UI Elements</span>
           <i class="menu-arrow"></i>
           <i class="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -34,8 +34,8 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
-          <span class="menu-title">Icons</span>
+        <a class="nav-link" href="{{url('/barang')}}">
+          <span class="menu-title">Barang</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>

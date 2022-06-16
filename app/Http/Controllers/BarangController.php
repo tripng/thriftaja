@@ -15,17 +15,6 @@ class BarangController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
-
-    /**
-
-     * Show the form for creating a new resource.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
     public function create()
 
     {
@@ -33,17 +22,6 @@ class BarangController extends Controller
         return view('barang.create');
 
     }
-    /**
-
-     * Store a newly created resource in storage.
-
-     *
-
-     * @param  \Illuminate\Http\Request  $request
-
-     * @return \Illuminate\Http\Response
-
-     */
 
     public function store(Request $request)
     {

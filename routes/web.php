@@ -28,6 +28,8 @@ Route::get('/admin',[AdminController::class,'index']);
 
 // Login
 Route::get('/login',[LoginController::class,'index']);
+
+// Registrasi
 Route::get('/register',[RegisterController::class,'index']);
 Route::post('/register',[RegisterController::class,'store']);
 
