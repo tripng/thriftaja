@@ -31,7 +31,9 @@ Route::get('/detail',[PageController::class,'detail']);
 Route::get('/admin',[AdminController::class,'index']);
 
 // Login
-Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');
+Route::post('/auth',[LoginController::class,'authenticate']);
+Route::get('/logout',[LoginController::class,'logout']);
 
 // Registrasi
 Route::get('/register',[RegisterController::class,'index']);

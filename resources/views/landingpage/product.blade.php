@@ -22,7 +22,9 @@
                     </div>
                     <div class="product__item__text">
                         <h6>{{$b->nama_barang}}</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        @auth
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                        @endauth
                         <div class="rating">
                             @foreach(range(1,mt_rand(1,5)) as $n)
                             <i class="fa fa-star-o"></i>
