@@ -30,11 +30,10 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 html,
 body {
     height: 100%;
-    font-family: "Poppins", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -47,7 +46,7 @@ h6 {
     margin: 0;
     color: #111111;
     font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 h1 {
@@ -76,7 +75,7 @@ h6 {
 
 p {
     font-size: 15px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     color: #3d3d3d;
     font-weight: 400;
     line-height: 25px;
@@ -176,22 +175,6 @@ ol {
     color: #fff;
 }
 
-.bg-purple {
-    background-color: #4e4d93;
-}
-
-.bg-purple:hover {
-    background-color: #3b3b6f;
-}
-
-.text-purple {
-    color: #4e4d93;
-}
-
-.text-purple:hover {
-    color: #3b3b6f;
-}
-
 /* buttons */
 
 .primary-btn {
@@ -201,7 +184,7 @@ ol {
     text-transform: uppercase;
     padding: 14px 30px;
     color: #ffffff;
-    background: #4e4d93;
+    background: #000000;
     letter-spacing: 4px;
 }
 
@@ -545,8 +528,7 @@ ol {
     padding: 30px 0;
 }
 
-.header__nav__option a,
-.dropdown {
+.header__nav__option a {
     display: inline-block;
     margin-right: 26px;
     position: relative;
@@ -1438,7 +1420,7 @@ ol {
     .card-heading
     > a.active[aria-expanded="false"]:after {
     content: "";
-    font-family: "Poppins";
+    font-family: "FontAwesome";
     font-size: 24px;
     font-weight: 700;
     color: #111111;
@@ -1450,7 +1432,7 @@ ol {
 
 .shop__sidebar__accordion .card-heading.active a:after {
     content: "";
-    font-family: "Poppins";
+    font-family: "FontAwesome";
     font-size: 24px;
     font-weight: 700;
     color: #111111;
@@ -1619,7 +1601,7 @@ ol {
     right: -14px;
     top: 0;
     content: "";
-    font-family: "Poppins";
+    font-family: "FontAwesome";
 }
 
 .product__details__breadcrumb span {
@@ -2121,7 +2103,7 @@ ol {
     right: -14px;
     top: 0;
     content: "";
-    font-family: "Poppins";
+    font-family: "FontAwesome";
 }
 
 .breadcrumb__links span {
@@ -3932,10 +3914,5 @@ ol {
     }
     .categories__text:before {
         height: 250px;
-    }
-
-    /* random */
-    .text-off {
-        color: #979797;
     }
 }

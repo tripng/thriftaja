@@ -2,6 +2,11 @@
 @section('content')
  <div class="row justify-content-center">
     <div class="col-lg-4 rounded float-start">
+      @if(session()->has('success'))
+      <div class="alert alert-success">
+        <p>{{ session('success') }}</p>
+    </div>
+      @endif
         <main class="form-signin w-100 m-auto">
             <small class="d-block text-right mt-3">Don't have an account? <a href="/register"> Sign Up</a></small>
             <h1 class="h3 mb-3 fw-normal text-left">Sign In</h1>
