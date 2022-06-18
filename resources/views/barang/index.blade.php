@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between my-3">
                         <h4 class="card-title">Data Barang</h4>
-                        <a href="" type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
+                        <a href="{{{route('barang.create')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
                             Tambah
                             <i class="typcn typcn-plus btn-icon-append"></i>
                         </a>

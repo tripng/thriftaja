@@ -25,10 +25,9 @@ Route::get('/shop',[PageController::class,'shop']);
 Route::get('/cart',[PageController::class,'cart']);
 Route::get('/detail',[PageController::class,'detail']);
 
-
-
 // Admin
-Route::get('/admin',[AdminController::class,'index']);
+Route::get('/admin',[AdminController::class,'index'])->middleware('admin');
+Route::resource('/barang',BarangController::class)->middleware('admin');
 
 // Login
 Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');
@@ -38,6 +37,3 @@ Route::get('/logout',[LoginController::class,'logout']);
 // Registrasi
 Route::get('/register',[RegisterController::class,'index']);
 Route::post('/register',[RegisterController::class,'store']);
-
-// Barang
-Route::resource('/barang',BarangController::class);
