@@ -108,7 +108,7 @@
                             <img src="img/icon/person-circle.svg" alt="">
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <li> <li>{{auth()->user()->username}}</li>
+                            <li><a href="{{ url('/admin') }}"> <li>{{auth()->user()->username}} </a></li>
                             <li><a class="dropdown-item" href="#">profile</a></li>
                             <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
