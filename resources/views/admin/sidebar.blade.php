@@ -3,7 +3,7 @@
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
         <div class="nav-profile-image">
-          <img src="assets/images/faces/face1.jpg" alt="profile">
+          <img src="{{asset('assets/images/faces/face1.jpg')}}" alt="profile">
           <span class="login-status online"></span>
           <!--change to offline or busy as needed-->
         </div>
@@ -15,14 +15,14 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="/admin">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="pages/icons/mdi.html">
+      <a class="nav-link" href="{{route('categories.index')}}">
         <span class="menu-title">Kategori Barang</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>

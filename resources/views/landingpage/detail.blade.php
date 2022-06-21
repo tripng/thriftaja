@@ -27,23 +27,9 @@
                 <div class="font-weight-bold mt-3">Product Description</div>
                 <p class="mt-2">A timeless design, with premium materials features as one of our most popular and iconic pieces. The dandy chair is perfect for any stylish living space with beech legs and lambskin leather upholstery.</p>
 
-                <div class="font-weight-bold mt-3">Dimensions</div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <small class="font-weight-bold">Height</small>
-                        <p>110 cm</p>
-                    </div>
-                    <div class="col-3">
-                        <small class="font-weight-bold">Width</small>
-                        <p>75 cm</p>
-                    </div>
-                    <div class="col-3">
-                        <small class="font-weight-bold">Depth</small>
-                        <p>50 cm</p>
-                    </div>
-                </div>
 
-                <div class="font-weight-bold mt-3">Quantity</div>
+
+                <div class="font-weight-bold mt-4.5">Quantity</div>
                 <div class="d-flex align-items-center">
                     <button class="btn mr-2" style="font-size: 25px;">-</button>
                     <div class="font-weight-bold mr-2">1</div>
