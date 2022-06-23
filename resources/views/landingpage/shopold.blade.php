@@ -1,19 +1,18 @@
 @extends('landingpage.index')
 @section('content')
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
-    </div>
-    <div class="carousel-item">
-        <img src="img/projek/monitor.jpg" class="img-fluid" alt="...">
-    </div>
-</div>
-<div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="img/projek/monitor.jpg" class="img-fluid" alt="...">
+        </div>
+    </div>s
     <div class="row product__filter">
         <div class="col-lg-12 margin-tb mt-4">
             <div class="pull-left">
-                <h3>Categories</h3>
+                <h3>Categoris</h3>
             </div>
             <div class="d-flex justify-content-end">
                 <a class="btn btn-success" href="#"> View All</a>
@@ -57,7 +56,7 @@
     <div class="row product__filter">
         <div class="col-lg-12 margin-tb mt-4">
             <div class="pull-left">
-                <h3>Products</h3>
+                <h3>Prosucts</h3>
             </div>
             <div class="d-flex justify-content-end">
                 <a class="btn btn-success" href="#"> View All</a>
@@ -401,5 +400,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Category;
+use App\Models\Testimoni;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,6 +15,7 @@ class Barang extends Model
     // public function testimoni(){
         // return $this->hasMany(Testimoni::class);
     // }
-    
-
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

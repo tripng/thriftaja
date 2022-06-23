@@ -13,7 +13,6 @@ class BarangController extends Controller
         $barangs = Barang::latest()->paginate(10);
         return view('barang.index',compact('barangs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-
     }
 
     /**

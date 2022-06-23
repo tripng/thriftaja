@@ -8,23 +8,59 @@
             <form method="post" action="{{route('register.store')}}">
               <div class="form-floating">
                   <label for="name">Nama</label>
-                <input type="text" name="name" class="form-control rounded-top" id="name" placeholder="Nama">
+                <input value="{{old('name')}}" type="text" name="name" class="form-control rounded-top 
+                  @error('name') is-invalid @enderror" 
+                  id="name" placeholder="Nama">
+                  @error('name')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
               </div>
               <div class="form-floating">
-                  <label for="username">No Hp</label>
-                <input type="text" name="no_hp" class="form-control" id="username" placeholder="Hp">
+                  <label for="name">Username</label>
+                <input value="{{old('username')}}" type="text" name="username" class="form-control rounded-top @error('username') is-invalid @enderror" id="name" placeholder="Username">
+                @error('username')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+              </div>
+              <div class="form-floating"> 
+                  <label for="no">No Hp</label>
+                <input value="{{old('no')}}" type="text" name="no" class="form-control @error('no') is-invalid @enderror  id="no" placeholder="Hp">
+                @error('no')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
               </div>
               <div class="form-floating">
                   <label for="username">Alamat</label>
-                <input type="text" name="alamat" class="form-control" id="username" placeholder="Username">
+                <input value="{{old('alamat')}}" type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" id="username" placeholder="Alamat">
+                @error('alamat')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
               </div>
               <div class="form-floating">
                   <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input value="{{old('email')}}" type="email" name="email" class="@error('email') is-invalid @enderror form-control" id="floatingInput" placeholder="name@example.com">
+                @error('email')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
               </div>
               <div class="form-floating">
                   <label for="password">Password</label>
-                <input type="password" name="password" class="form-control rounded-bottom" id="password" placeholder="Password">
+                <input type="password" name="password" class="@error('password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Password">
+                @error('password')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
                 <p class="d-block text center">use 8 or more characters  with a mix of letters,numbers & symbols</p> <br/>
                 <p class="d-block text center">By creating an account, you agree to our
                      <a href="#"> Terms of use</a> and <a href="#"> Privacy Policy</a>

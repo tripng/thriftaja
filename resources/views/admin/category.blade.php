@@ -20,8 +20,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between my-3">
-                        <h4 class="card-title">Data Barang</h4>
-                        <a href="{{{route('barang.create')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
+                        <h4 class="card-title">Category Barang</h4>
+                        <a href="{{{route('categories.create')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
                             Tambah
                             <i class="typcn typcn-plus btn-icon-append"></i>
                         </a>
@@ -37,36 +37,31 @@
                             <thead>
                                 <tr>
                                     <th> No </th>
-                                    <th> Nama Barang </th>
-                                  {{--  <th> Kategori Barang </th> --}}
-                                    <th> Harga </th>
-                                    <th> Stok </th>
-                                    <th> Foto </th>
-                                    {{--  <th> Keterangan </th> --}}
+                                    <th> Nama Category </th>
+                                    <th> Slug </th>
+                                    <th> Jumlah Barang </th>
                                     <th> Action </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($barangs as $m)
+                                @foreach ($categories as $category)
                                 <tr>
-                                    <td> {{ ++$i }}</td>
-                                    <td> {{ $m->nama_barang}}</td>
-                                    <td> {{ $m->category->name}}</td>
-                                    <td>Rp.{{ number_format($m->harga,0,'.',',')}}</td>
-                                    <td>{{ $m->stok}}</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$category->name}}</td>
+                                    <td>{{$category->slug}}</td>
+                                    <td>{{$category->barang->count()}}</td>
                                     {{-- <td><img src="{{asset('storage/image/'.$m->foto)}}" alt=""></td> --}}
                                     <td>
-                                        <a href="{{route('detail-barang',['barang' => $m->slug ])}}" class="btn btn-sm btn-info" >Detail</a>
-                                        {{-- <a class="btn btn-info btn-sm" href="/barang/{{$m->id}}/edit">
+                                        <a class="btn btn-info btn-sm" href="/categories/{{$category->slug}}/edit">
                                             Edit<i class="bi bi-eye"></i>
-                                        </a> --}}
-                                        {{-- <form action="{{ route('barang.destroy',$m->id) }}" class="d-inline" method="POST">
+                                        </a>
+                                        <form action="{{ route('categories.destroy',$category->slug) }}" class="d-inline" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin Data dihapus??')" title="Hapus Data Mahasiswa">
+                                            <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Menhapus category??')" title="Delete Category">
                                                 Hapus<i class="bi bi-trash"> </i>
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
