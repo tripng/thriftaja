@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
-<div class="row justify-content-center">
+ <div class="row justify-content-center">
     <div class="col-lg-4 rounded float-start">
       @if(session()->has('success'))
       <div class="alert alert-success">
