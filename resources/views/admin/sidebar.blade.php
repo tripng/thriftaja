@@ -3,7 +3,7 @@
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
         <div class="nav-profile-image">
-          <img src="assets/images/faces/face1.jpg" alt="profile">
+          <img src="{{asset('assets/images/faces/face1.jpg')}}" alt="profile">
           <span class="login-status online"></span>
           <!--change to offline or busy as needed-->
         </div>
@@ -53,9 +53,11 @@
       </a>
       <div class="collapse" id="general-pages">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="#"> Login/Register </a></li>
-          <li class="nav-item"> <a class="nav-link" href="#"> Profile </a></li>
-          <li class="nav-item"> <a class="nav-link" href="#"> Logout </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
         </ul>
       </div>
     </li>
