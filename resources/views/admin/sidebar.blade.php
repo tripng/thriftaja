@@ -15,14 +15,14 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin">
+      <a class="nav-link" href="{{ url('home') }}">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{{route('categories.index')}}">
+      <a class="nav-link" href="{{ url('/barang.kategori') }}">
         <span class="menu-title">Kategori Barang</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
@@ -40,7 +40,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
+      <a class="nav-link" href="{{ url('/pembeli') }}">
         <span class="menu-title">Data Pembeli</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>

@@ -64,7 +64,7 @@
             <div>
                 <h4>Subtotal $210</h4>
                 <p class="mt-2">Taxes and shipping are calculated at checkout</p>
-                <a href="#" class="btn bg-purple rounded-0 text-white" style="width: 180px;">Go to checkout</a>
+                <a href="{{ url('/checkout') }}" class="btn bg-purple rounded-0 text-white" style="width: 180px;">Go to checkout</a>
             </div>
         </div>
     </div>
