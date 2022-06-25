@@ -1,72 +1,75 @@
 @extends('landingpage.index')
 @section('content')
-<div class="container">
-    <div id="shoppingCart" class="py-4">
-        <h3 class="font-weight-bold">Your Shopping Cart</h3>
-        <div class="row mt-4">
-            <div class="col-6">
-                <h5 class="font-weight-bold">Product</h5>
-            </div>
-            <div class="col-3">
-                <h5 class="font-weight-bold">Quantity</h5>
-            </div>
-            <div class="col-3">
-                <h5 class="font-weight-bold">Total</h5>
-            </div>
-        </div>
-        <hr>
-        <div class="row mt-4">
-            <div class="col-6">
-                <div class="d-flex mt-3">
-                    <img src="{{ asset('img/projek/l1.jpg') }}" alt="" class="w-50 mr-4">
-                    <div>
-                        <h5 class="font-weight-bold">Xiaomi Mi 10</h5>
-                        <div class="mt-2">Basic white vase Beautiful and simple this is one for the classics</div>
-                        <div class="font-weight-bold mt-2">$85</div>
+<section class="shopping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(auth()->user()->cart as $c)
+                            <tr>
+                                <td class="product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <img src="{{asset('img/shopping-cart/cart-3.jpg')}}" alt="">
+                                    </div>
+                                    <div class="product__cart__item__text">
+                                        <h6>T-shirt Contrast Pocket</h6>
+                                        <h5>$98.49</h5>
+                                    </div>
+                                </td>
+                                <td class="quantity__item">
+                                    <div class="quantity">
+                                        <div class="pro-qty-2">
+                                            <input type="text" value="1">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price">$ 30.00</td>
+                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                            <a href="#">Continue Shopping</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn update__btn">
+                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="d-flex align-items-center mt-2">
-                    <button class="btn mr-2">-</button>
-                    <div class="mr-2 font-weight-bold">1</div>
-                    <button class="btn">+</button>
+            <div class="col-lg-4">
+                {{-- <div class="cart__discount">
+                    <h6>Discount codes</h6>
+                    <form action="#">
+                        <input type="text" placeholder="Coupon code">
+                        <button type="submit">Apply</button>
+                    </form>
+                </div> --}}
+                <div class="cart__total">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li>Total <span>$ 169.50</span></li>
+                    </ul>
+                    <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>
-            </div>
-            <div class="col-3">
-                <h5 class="mt-3">$85</h5>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-6">
-                <div class="d-flex mt-3">
-                    <img src="{{ asset('img/projek/l1.jpg') }}" alt="" class="w-50 mr-4">
-                    <div>
-                        <h5 class="font-weight-bold">Basic White Phase</h5>
-                        <div class="mt-2">Basic white vase Beautiful and simple this is one for the classics</div>
-                        <div class="font-weight-bold mt-2">$85</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="d-flex align-items-center mt-2">
-                    <button class="btn mr-2">-</button>
-                    <div class="mr-2 font-weight-bold">1</div>
-                    <button class="btn">+</button>
-                </div>
-            </div>
-            <div class="col-3">
-                <h5 class="mt-3">$85</h5>
-            </div>
-        </div>
-        <hr>
-        <div class="d-flex justify-content-end">
-            <div>
-                <h4>Subtotal $210</h4>
-                <p class="mt-2">Taxes and shipping are calculated at checkout</p>
-                <a href="#" class="btn bg-purple rounded-0 text-white" style="width: 180px;">Go to checkout</a>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

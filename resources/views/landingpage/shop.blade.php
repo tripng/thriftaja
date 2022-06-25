@@ -397,7 +397,7 @@
         </div>
         <div class="col-lg-12 margin-tb mt-4">
             <div class="d-flex justify-content-center">
-                <a class="btn btn-success" href="#"> View All</a>
+                <a class="btn btn-success" href="{{route('allshop')}}"> View All</a>
             </div>
         </div>
     </div>

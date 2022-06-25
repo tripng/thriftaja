@@ -19,7 +19,7 @@ class BarangFactory extends Factory
     {
         return [
             'kode_barang' => $this->faker->regexify('[A-Z]{3}-[0-9]{3}'),
-            'category_id' => 1,
+            'category_id' => $this->faker->numberBetween(1,10),
             'nama_barang' => $this->faker->randomElement(['Iphone','Samsung','Leptop Asus TUF Gaming']),
             'harga' => $this->faker->randomNumber(5,true),
             'stok' => $this->faker->randomNumber(2,true),

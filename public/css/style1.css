@@ -1419,7 +1419,7 @@ ol {
 .shop__sidebar__accordion
     .card-heading
     > a.active[aria-expanded="false"]:after {
-    content: "";
+    content: "V";
     font-family: "FontAwesome";
     font-size: 24px;
     font-weight: 700;

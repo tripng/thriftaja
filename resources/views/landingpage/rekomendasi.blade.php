@@ -1,43 +1,41 @@
-
-    <div class="hero__slider owl-carousel">
+<!-- Banner Section Begin -->
+<section class="banner spad">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-5 mt-5">
-                    <div class="hero__text mt-5">
-                        <h6>Summer Collection</h6>
-                        <h4>ELECTRONIC COLLECTION 2022</h4>
-                        <p>Lorem ipsum is simply dummi text of the printting and type setting
-                            industry, lorem ipsum has been the.</p>
-                        <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-1.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Handphone Collections 2030</h2>
+                            <a href="#">Shop now</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-5 col-md-5 mt-5">
-                    <img src="img/projek/l1.jpg" class="card-img-top" alt="...">
+                <div class="col-lg-5">
+                    <div class="banner__item banner__item--middle">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-2.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Accessories</h2>
+                            <a href="#">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner__item banner__item--last">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-3.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Laptop 2030</h2>
+                            <a href="#">Shop now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row col-sm-12 mt-5 mb-2">
-        <div class="rounded mx-auto d-block">
-            <h4 class="font-weight-bold"> ELECTRONIC</h4>
-            <h4 class="font-weight-bold"> COLLECTION 2022</h4>
-        </div>
-    </div>
-    <div class="row w-100 mt-5 mx-auto d-flex justify-content-around">
-        <div class="col-sm-6">
-            <div class="card d-block mx-auto" style="width: 18rem;">
-                <img src="img/projek/phone.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Handphone Collection 2022</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 ">
-            <div class="card d-block mx-auto" style="width: 18rem;">
-                <img src="img/projek/l2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Handphone Collection 2022</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
+    <!-- Banner Section End -->
