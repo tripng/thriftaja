@@ -1,5 +1,17 @@
 @extends('landingpage.index')
 @section('content')
+{{-- banner --}}
+<div id="carouselExampleSlidesOnly" class="container carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+        <img src="img/projek/l3.jpg" class="img-fluid" alt="...">
+    </div>
+</div>
+
+{{-- akhir banner --}}
 <section class="shop spad">
     <div class="container">
         <div class="row">
@@ -211,5 +223,7 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
 </section>
 @endsection

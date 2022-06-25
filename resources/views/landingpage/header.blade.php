@@ -44,4 +44,5 @@
             <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
     </header>
+    
     <!-- Header Section End -->
