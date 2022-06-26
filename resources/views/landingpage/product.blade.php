@@ -14,11 +14,6 @@
                 <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{asset('img/projek/l'.mt_rand(1,4).'.jpg')}}">
                             {{-- <span class="label">New</span> --}}
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('img/icon/compare.png')}}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{{asset('img/icon/search.png')}}" alt=""></a></li>
-                            </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>{{$b->nama_barang}}</h6>
@@ -42,7 +37,7 @@
                             </div>
                             
                         </div>
-                        <a href="#">Lihat Barang</a>
+                        <a href="#" class="mt-3 text-purple">Lihat Barang</a>
                     </div>
                 </div>
             

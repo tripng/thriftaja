@@ -16,11 +16,11 @@
     {{-- kategori --}}
     <div class="row product__filter ">
         <div class="col-lg-12 mt-4  d-flex flex-wrap justify-content-between">
-            <div class="text-black-50">
-                <h5>Categories</h5>
+            <div class="font-weight-bold">
+                <h5 class="font-weight-bold">Categories</h5>
             </div>
             <div class="">
-                <a class="text-purple" href="#"> View All</a>
+                <a class="text-purple font-weight-bold" href="#"> View All</a>
             </div>
         </div>
         <div class="d-flex justify-content-evenly mt-2">
@@ -63,10 +63,10 @@
     <div class="row product__filter ">
         <div class="col-lg-12 margin-tb mt-4 ">
             <div class="pull-left">
-                <h5>Products</h5>
+                <h5 class="font-weight-bold">Products</h5>
             </div>
             <div class="d-flex justify-content-end">
-                <a class="text-purple" href="#"> View All</a>
+                <a class="text-purple font-weight-bold" href="#"> View All</a>
             </div>
         </div>
 
@@ -124,7 +124,7 @@
     <div class="row product__filter">
         <div class="col-lg-12 mt-4 mb-3">
             <div class="pull-left">
-                <h5>Recomendation</h5>
+                <h5 class="font-weight-bold">Recomendation</h5>
             </div>
         </div>
         <div class="col-lg-12">
@@ -834,7 +834,7 @@
         </div> --}}
         <div class="col-lg-12 margin-tb mt-4">
             <div class="d-flex justify-content-center">
-                <a class=" btn btn-primary px-5" href="{{route('allshop')}}"> View All</a>
+                <a class=" btn btn-primary px-5 font-weight-bold" href="{{route('allshop')}}"> View All</a>
             </div>
         </div>
     </div>
