@@ -1,44 +1,26 @@
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="categories__text">
-                    <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="categories__hot__deal">
-                    <img src="img/projek/monitor.jpg" alt="">
-                    <div class="hot__deal__sticker">
-                        <span>Sale Of</span>
-                        <h5>$29.99</h5>
+<!-- Instagram Section Begin -->
+<section class="instagram spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="instagram__pic">
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/l1squaree.jpg')}}"></div>
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/l2squaree.jpg')}}"></div>
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/l3squaree.jpg')}}"></div>
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/earphone1.jpg')}}"></div>
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/phonesquaree.jpg')}}"></div>
+                        <div class="instagram__pic__item set-bg" data-setbg="{{asset('img/projek/phone1squaree.jpg')}}"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 offset-lg-1">
-                <div class="categories__deal__countdown">
-                    <span>Deal Of The Week</span>
-                    <h2>Multi-pocket Chest Bag Black</h2>
-                    <div class="categories__deal__countdown__timer" id="countdown">
-                        <div class="cd-item">
-                            <span>3</span>
-                            <p>Days</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>1</span>
-                            <p>Hours</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>50</span>
-                            <p>Minutes</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>18</span>
-                            <p>Seconds</p>
-                        </div>
+                <div class="col-lg-4">
+                    <div class="instagram__text">
+                        <h2>Instagram</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                        <h3>ThriftAja</h3>
                     </div>
-                    <a href="#" class="primary-btn">Shop now</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- Instagram Section End -->

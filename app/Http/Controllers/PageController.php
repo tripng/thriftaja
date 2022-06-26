@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Category;
+use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,15 +14,23 @@ class PageController extends Controller
     public function index(){
         return view ('landingpage.home',[
             // 'barang' => Barang::find(1)->testimoni,
-            'barang' => Barang::all(),
+            'barang' => Barang::with('category')->get(),
             'product_filter' => collect(['new-arrivals','hot-sales']),
         ]);
     }
     public function shop(){
         return view('landingpage.shop');
     }
-    public function cart(){
-        return view('landingpage.cart');
+    public function cart(User $user){
+        $cart = Cart::with('user','barang')->where('user_id','=',$user->id)->get();
+        $count_barang = collect([]);
+        foreach($cart as $c){
+            $count_barang->push($c->barang->harga);
+        }
+        return view('landingpage.cart',[
+            'cart' => $cart,
+            'count_barang' => $count_barang,
+        ]);
     }
     public function detail(){
         return view('landingpage.detail');
@@ -30,6 +40,12 @@ class PageController extends Controller
     }
     public function product(){
         return view('landingpage.product');
+    }
+    public function allshop(){
+        return view('landingpage.allshop',[
+            'category' => Category::with('barang')->get(),
+            'barang' => Barang::with('category')->paginate(9), //->withQueryString()
+        ]);
     }
     public function category(){
         $categories = Category::latest()->paginate(10);

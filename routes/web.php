@@ -8,16 +8,24 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
-
+Route::get('/contact', function () {
+    return view('landingpage/contact');
+});
 // Landing Page
 Route::get('/',[PageController::class,'index']);
 Route::get('/home',[PageController::class,'index']);
 Route::get('/shop',[PageController::class,'shop']);
-Route::get('/cart',[PageController::class,'cart']);
 Route::get('/detail',[PageController::class,'detail']);
 Route::get('/checkout',[PageController::class,'checkout'])->middleware('auth');
 Route::get('/category',[PageController::class,'category']);
+Route::get('/allshop',[PageController::class,'allshop'])->name('allshop');
+
+//Cart
+Route::get('/cart/{user:username}',[PageController::class,'cart'])->name('cart');
+Route::post('/cart/{username}',[CartController::class,'store'])->name('store-cart');
+Route::get('/des-cart/{username}/{id}',[CartController::class,'destroy'])->name('des-cart');
 // Route::get('/thrift/barang()',[PageController::class,'category']);
 
 // Admin

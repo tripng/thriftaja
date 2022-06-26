@@ -1,85 +1,90 @@
 @extends('landingpage.index')
 @section('content')
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
-    </div>
-    <div class="carousel-item">
-        <img src="img/projek/monitor.jpg" class="img-fluid" alt="...">
-    </div>
-</div>
 <div class="container">
-    <div class="row product__filter">
-        <div class="col-lg-12 margin-tb mt-4">
-            <div class="pull-left">
-                <h3>Categories</h3>
+    {{-- banner --}}
+    <div id="carouselExampleSlidesOnly" class="container carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="img/projek/l3.jpg" class="img-fluid" alt="...">
+        </div>
+    </div>
+
+{{-- akhir banner --}}
+    {{-- kategori --}}
+    <div class="row product__filter ">
+        <div class="col-lg-12 mt-4  d-flex flex-wrap justify-content-between">
+            <div class="font-weight-bold">
+                <h5 class="font-weight-bold">Categories</h5>
             </div>
-            <div class="d-flex justify-content-end">
-                <a class="btn btn-success" href="#"> View All</a>
+            <div class="">
+                <a class="text-purple font-weight-bold" href="#"> View All</a>
             </div>
         </div>
-        <div class="row d-flex justify-content-around mt-2">
-            <div class="col-sm-3">
-                <div class="card d-block mx-auto" style="width: 18rem;">
-                    <img src="img/projek/monitor.jpg" class="card-img-top" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+        <div class="d-flex justify-content-evenly mt-2">
+            <div class="col-lg-3 ">
+                <div class="card d-block mx-auto">
+                    <a href=""><img src="img/projek/earphone1.jpg" class="card-img-top " alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-white align-items-center">
                         <h5>Monitor</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card d-block mx-auto" style="width: 18rem;">
-                    <img src="img/projek/setrika.jpg" class="card-img-top" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+            <div class="col-lg-3 ">
+                <div class="card d-block mx-auto">
+                    <a href=""><img src="img/projek/l1squaree.jpg" class="card-img-top" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Setrika</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card d-block mx-auto" style="width: 18rem;">
-                    <img src="img/projek/earphone.jpg" class="card-img-top" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+            <div class="col-lg-3 ">
+                <div class="card d-block mx-auto">
+                    <a href=""><img src="img/projek/l2squaree.jpg" class="card-img-top" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Handphone</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 ">
-                <div class="card d-block mx-auto" style="width: 18rem;">
-                    <img src="img/projek/l2.jpg" class="card-img-top" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+            <div class="col-lg-3 ">
+                <div class="card d-block mx-auto">
+                    <a href=""><img src="img/projek/l3squaree.jpg" class="card-img-top" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Laptop</h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row product__filter">
-        <div class="col-lg-12 margin-tb mt-4">
+    {{-- akhir kategori --}}
+    {{-- product --}}
+    <div class="row product__filter ">
+        <div class="col-lg-12 margin-tb mt-4 ">
             <div class="pull-left">
-                <h3>Products</h3>
+                <h5 class="font-weight-bold">Products</h5>
             </div>
             <div class="d-flex justify-content-end">
-                <a class="btn btn-success" href="#"> View All</a>
+                <a class="text-purple font-weight-bold" href="#"> View All</a>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/acer.jpg">
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg"></div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/apple.jpg">
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
+                </div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/mito.jpg">
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
+                </div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
@@ -96,7 +101,7 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/mfi.jpg">
+                <div class="product__item__pic set-bg" data-setbg="img/projek/mi.jpg">
                 </div>
             </div>
         </div>
@@ -108,19 +113,252 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/ZYRX.png">
+                <div class="product__item__pic set-bg" data-setbg="img/projek/mi.jpg">
                 </div>
             </div>
         </div>
     </div>
+    {{-- akhir product --}}
+    {{-- recomendation --}}
     <div class="row product__filter">
-        <div class="col-lg-12 margin-tb mt-4">
+        <div class="col-lg-12 mt-4 mb-3">
             <div class="pull-left">
-                <h3>Recomendation</h3>
+                <h5 class="font-weight-bold">Recomendation</h5>
             </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-13.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>T-shirt Contrast Pocket</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h5>$49.66</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Piqué Biker Jacket</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h5>$67.24</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item sale">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                            <span class="label">Sale</span>
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Multi-pocket Chest Bag</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$43.48</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Diagonal Textured Cap</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$60.9</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item sale">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                            <span class="label">Sale</span>
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Ankle Boots</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$98.49</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>T-shirt Contrast Pocket</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$49.66</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Basic Flowing Scarf</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$26.28</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-9.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Piqué Biker Jacket</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$67.24</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item sale">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-10.jpg">
+                            <span class="label">Sale</span>
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Multi-pocket Chest Bag</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$43.48</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-11.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Diagonal Textured Cap</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$60.9</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item sale">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-12.jpg">
+                            <span class="label">Sale</span>
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>Ankle Boots</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            
+                            <h5>$98.49</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-13.jpg">
+                            {{-- <ul class="product__hover">
+                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                </li>
+                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            </ul> --}}
+                        </div>
+                        <div class="product__item__text">
+                            <h6>T-shirt Contrast Pocket</h6>
+                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h5>$49.66</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
             <div class="product__item">
                 <div class="product__item__pic set-bg" data-setbg="img/projek/l3.jpg">
                     <span class="label">New</span>
@@ -394,12 +632,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-lg-12 margin-tb mt-4">
             <div class="d-flex justify-content-center">
-                <a class="btn btn-success" href="#"> View All</a>
+                <a class=" btn btn-primary px-5 font-weight-bold" href="{{route('allshop')}}"> View All</a>
             </div>
         </div>
     </div>
+    {{-- akhir rekomendation --}}
+</div>
 </div>
 @endsection

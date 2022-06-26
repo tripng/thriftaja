@@ -103,18 +103,15 @@ class BarangController extends Controller
      */
 
     public function update(Request $request, barang $barang)
-
     {
 
         $request->validate([
-
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'harga' => 'required',
             'stok' => 'required',
             'foto' => 'required',
             'keterangan' => 'required',
-
         ]);
 
 

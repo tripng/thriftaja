@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
-<div class="row justify-content-center">
+ <div class="row justify-content-center w-100">
     <div class="col-lg-5">
         <main class="form-registration w-100 m-auto">
             <h1 class="h3 mb-3 fw-normal text-center ">Create an account</h1>
