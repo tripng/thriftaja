@@ -20,7 +20,7 @@
               @csrf
                 <div class="text-center"><button>
                     <a href="#" class="btn btn-ligh">
-                        <i class="fa fa-google"></i>Continue with google</a> </button>  <br/>
+                        <i class="fa fa-google"></i>Continue with google</a> </button>
                </div>
               <div class="form-floating">
                 <label for="username">Username</label>
@@ -31,7 +31,7 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 <small class="d-block text-right"><a href="#"> Forget your password?</a></small>
               </div>
-              <button class="btn btn-lg btn-primary d-block btn-center" type="submit">Login</button> <br/>
+              <button class="btn btn-lg btn-primary d-block btn-center" type="submit">Login</button>
             </form>
         </main>
     </div>
