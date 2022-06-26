@@ -18,24 +18,7 @@
                         <div class="product__item__text">
                             <h6>{{$b->nama_barang}}</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                @foreach(range(1,mt_rand(1,5)) as $n)
-                                <i class="fa fa-star-o"></i>
-                                @endforeach
-                            </div>
                             <h5>Rp{{number_format($b->harga,0,',','.')}}</h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>

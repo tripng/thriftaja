@@ -15,14 +15,6 @@
                     <div class="col-lg-8">
                         <div class="product__details__text">
                             <h4>Hooded thermal anorak</h4>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div>
                             <h3>$270.00 <span>70.00</span></h3>
                             <div class="product__details__cart__option">
                                 <div class="quantity">
@@ -136,7 +128,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -162,15 +153,7 @@
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
                             <h5>$67.24</h5>
-                            
                         </div>
                     </div>
                 </div>
@@ -181,15 +164,7 @@
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
                             <h5>$67.24</h5>
-                            
                         </div>
                     </div>
                 </div>
@@ -201,15 +176,7 @@
                         <div class="product__item__text">
                             <h6>Multi-pocket Chest Bag</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
                             <h5>$43.48</h5>
-                            
                         </div>
                     </div>
                 </div>
@@ -220,15 +187,7 @@
                         <div class="product__item__text">
                             <h6>Diagonal Textured Cap</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
                             <h5>$60.9</h5>
-                            
                         </div>
                     </div>
                 </div>

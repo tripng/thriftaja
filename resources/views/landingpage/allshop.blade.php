@@ -180,30 +180,12 @@
                         @foreach($barang as $b)
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
-                                    </div>
+                                    <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
+                                    </div></a>
                                     <div class="product__item__text">
                                         <h6>{{$b->nama_barang}}</h6>
                                         <a href="#" class="add-cart">+ Add To Cart</a>
-                                        <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
                                         <h5><small>Rp </small>{{number_format($b->harga,0,',','.')}}</h5>
-                                        <div class="product__color__select">
-                                            <label for="pc-40">
-                                                <input type="radio" id="pc-40">
-                                            </label>
-                                            <label class="active black" for="pc-41">
-                                                <input type="radio" id="pc-41">
-                                            </label>
-                                            <label class="grey" for="pc-42">
-                                                <input type="radio" id="pc-42">
-                                            </label>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
