@@ -23,13 +23,13 @@ class PageController extends Controller
     }
     public function cart(User $user){
         $cart = Cart::with('user','barang')->where('user_id','=',$user->id)->get();
-        $count_barang = 0;
+        $count_barang = collect([]);
         foreach($cart as $c){
-            $count_barang += $c->barang->harga;
+            $count_barang->push($c->barang->harga);
         }
         return view('landingpage.cart',[
             'cart' => $cart,
-            'total' => $count_barang,
+            'count_barang' => $count_barang,
         ]);
     }
     public function detail(){

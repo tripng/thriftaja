@@ -212,7 +212,6 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         
-                                        <a href="#" class="add-cart">+ Add To Cart</a>
                                         <h5><small>Rp </small>{{number_format($b->harga,0,',','.')}}</h5>
                                     </div>
                                 </div>

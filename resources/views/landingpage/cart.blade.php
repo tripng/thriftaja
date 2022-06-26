@@ -1,6 +1,5 @@
 @extends('landingpage.index')
 @section('content')
-
 <section class="shopping-cart spad">
     <div class="container">
         <div class="row">
@@ -76,7 +75,7 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Total <span id="total_harga">Rp{{number_format($total,0,',','.')}}</span></li>
+                        <li>Total <span id="total_harga">Rp {{number_format($count_barang->sum(),0,',','.')}}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>
@@ -88,7 +87,10 @@
     const jumlah = document.querySelectorAll('.clsjumlah');
     const total = document.querySelectorAll('.clstotal');
     const total_harga = document.querySelector('#total_harga');
-    
+    let hargaLive = [];
+        for(let i=0; i<={{$count_barang->count()-1}}; i++){
+            hargaLive.push(Number(total[i].innerText.replace(/([.]|Rp)/gi,"")));
+        }
     const rupiah = (number)=>{
         return new Intl.NumberFormat("id-ID", {
         style: "currency",
@@ -97,8 +99,10 @@
         }).format(number);
     }
     function totalCount(x,harga){
-        total[x].innerHTML = rupiah(harga*Number(jumlah[x].value));
-        total_harga.innerHTML = rupiah({{$total}} + (harga*Number(jumlah[x].value)-harga));
+        jumlahHarga = rupiah(harga*Number(jumlah[x].value))
+        total[x].innerHTML = jumlahHarga;
+        hargaLive[x] = Number(jumlahHarga.replace(/([.]|Rp)/gi,""));
+        total_harga.innerHTML = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
     }
 
     function arrowQty(x, harga, state){
@@ -119,6 +123,5 @@
         jumlah[x].value = newVal;
         totalCount(x,harga)
     }
-
 </script>
 @endsection

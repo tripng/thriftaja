@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
- <div class="row justify-content-center">
+ <div class="row justify-content-center w-100">
     <div class="col-lg-4 rounded float-start">
       @if(session()->has('success'))
       <div class="alert alert-success">
@@ -18,9 +18,12 @@
             <h1 class="h3 mb-3 fw-normal text-left">Sign In</h1>
             <form method="POST" action="{{url('/auth')}}">
               @csrf
-                <div class="text-center"><button>
-                    <a href="#" class="btn btn-ligh">
-                        <i class="fa fa-google"></i>Continue with google</a> </button>
+                <div class="text-center">
+                  <button class="btn border-dark">
+                    <a href="#" class="btn btn-light">
+                      <i class="fa fa-google"></i> Continue with google
+                    </a>
+                  </button>
                </div>
               <div class="form-floating">
                 <label for="username">Username</label>
