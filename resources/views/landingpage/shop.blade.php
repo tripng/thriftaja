@@ -26,7 +26,7 @@
         <div class="d-flex justify-content-evenly mt-2">
             <div class="col-lg-3 ">
                 <div class="card d-block mx-auto">
-                    <img src="img/projek/earphone1.jpg" class="card-img-top " alt="...">
+                    <a href=""><img src="img/projek/earphone1.jpg" class="card-img-top " alt="..."></a>
                     <div class="carousel-caption d-none d-md-block text-white align-items-center">
                         <h5>Monitor</h5>
                     </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-3 ">
                 <div class="card d-block mx-auto">
-                    <img src="img/projek/l1squaree.jpg" class="card-img-top" alt="...">
+                    <a href=""><img src="img/projek/l1squaree.jpg" class="card-img-top" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Setrika</h5>
                     </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-lg-3 ">
                 <div class="card d-block mx-auto">
-                    <img src="img/projek/l2squaree.jpg" class="card-img-top" alt="...">
+                    <a href=""><img src="img/projek/l2squaree.jpg" class="card-img-top" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Handphone</h5>
                     </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="col-lg-3 ">
                 <div class="card d-block mx-auto">
-                    <img src="img/projek/l3squaree.jpg" class="card-img-top" alt="...">
+                    <a href=""><img src="img/projek/l3squaree.jpg" class="card-img-top" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block text-white">
                         <h5>Laptop</h5>
                     </div>
@@ -72,20 +72,19 @@
 
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg" background-size: cover;>
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg"></div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
+                </div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
-                </div>
+                <a href=""><div class="product__item__pic set-bg" data-setbg="img/projek/philips.jpg">
+                </div></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
