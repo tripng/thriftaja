@@ -166,6 +166,12 @@
                 <div class="shop__product__option">
                     <div class="row">
                         @foreach($barang as $b)
+                        @auth()
+                        @php
+                            $barang_id = $b->id;
+                            $user_id = auth()->user()->id;
+                        @endphp
+                        @endauth
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
@@ -178,7 +184,20 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6>{{$b->nama_barang}}</h6>
-                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        @auth()
+                                        <form action="{{route('store-cart',[
+                                            'username' => auth()->user()->username,
+                                        ])}}" method="post">
+                                            @csrf
+                                            <input type="hidden" value="{{$b->id}}" name="barang_id">
+                                            <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                            <input type="hidden" value="1" name="jumlah">
+                                            <input type="hidden" value="{{$b->harga}}" name="harga">
+                                            <button class="add-cart">+ Add To Cart</button>
+                                        </form>
+                                        @else
+                                        <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
+                                        @endauth()
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
@@ -186,6 +205,7 @@
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         </div>
+                                        
                                         <h5><small>Rp </small>{{number_format($b->harga,0,',','.')}}</h5>
                                         <div class="product__color__select">
                                             <label for="pc-40">

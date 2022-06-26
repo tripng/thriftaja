@@ -19,6 +19,8 @@ class CartFactory extends Factory
         return [
             'user_id' => 1,
             'barang_id' => 2,
+            'jumlah' => 1,
+            'harga' => 20000000,
         ];
     }
 }

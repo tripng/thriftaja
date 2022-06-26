@@ -17,8 +17,4 @@ class Cart extends Model
     public function barang(){
         return $this->belongsTo(Barang::class);
     }
-    public function getRouteKeyName()
-    {
-        return 'username';
-    }
 }

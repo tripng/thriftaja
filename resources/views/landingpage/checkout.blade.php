@@ -1,67 +1,132 @@
 @extends('landingpage.index')
 @section('content')
-<div class="container">
-    <div id="checkout" class="py-4">
-        <h3 class="font-weight-bold">Checkout</h3>
-        <h5 class="font-weight-bold mt-5">Shipping Address</h5>
-
-        <div class="row">
-            <div class="col-md-6">
-                <hr>
-                <h5 class="font-weight-bold">Muhammad Asharul (Home)</h5>
-                <div class="mt-2">085702363509</div>
-                <p class="mt-2">JLN PRINGGONDANI 7 BSP 2 RT 4 RW 11 BLOK L 5 KARANGGENENG BOYOLALI
-                    Boyolali, Kab. Boyolali, 57312</p>
-                <button class="btn bg-purple rounded-0 text-white mt-3" style="width: 200px;">Choose Other Address</button>
-                <hr>
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <form action="#">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{ asset('img/projek/l1.jpg') }}" alt="">
+                    <div class="col-lg-8 col-md-6">
+                        <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
+                                here</a> to enter your code</h6>
+                        <h6 class="checkout__title">Billing Details</h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Fist Name<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Last Name<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Country<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Address<span>*</span></p>
+                            <input type="text" placeholder="Street Address" class="checkout__input__add">
+                            <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Town/City<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Country/State<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Postcode / ZIP<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Phone<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input__checkbox">
+                            <label for="acc">
+                                Create an account?
+                                <input type="checkbox" id="acc">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p>Create an account by entering the information below. If you are a returning customer
+                                please login at the top of the page</p>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Account Password<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input__checkbox">
+                            <label for="diff-acc">
+                                Note about your order, e.g, special noe for delivery
+                                <input type="checkbox" id="diff-acc">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Order notes<span>*</span></p>
+                            <input type="text"
+                                placeholder="Notes about your order, e.g. special notes for delivery.">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h5 class="font-weight-bold">Xiaomi Mi 10</h5>
-                        <p>A timeless ceramic vase with
-                            a tri color grey glaze.</p>
-                        <div class="font-weight-bold" style="font-size: 18px;">$85</div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4 class="order__title">Your order</h4>
+                            <div class="checkout__order__products">Product <span>Total</span></div>
+                            <ul class="checkout__total__products">
+                                <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
+                                <li>02. German chocolate <span>$ 170.0</span></li>
+                                <li>03. Sweet autumn <span>$ 170.0</span></li>
+                                <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
+                            </ul>
+                            <ul class="checkout__total__all">
+                                <li>Subtotal <span>$750.99</span></li>
+                                <li>Total <span>$750.99</span></li>
+                            </ul>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc-or">
+                                    Create an account?
+                                    <input type="checkbox" id="acc-or">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.</p>
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Check Payment
+                                    <input type="checkbox" id="payment">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal">
+                                    Paypal
+                                    <input type="checkbox" id="paypal">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <h5 class="font-weight-bold text-center">Payment Transfer</h5>
-                <img src="{{ asset('img/logo-bca.png') }}" alt="" class="mt-3">
-                <div class="mt-4">PT ThriftAja Membangun Indonesia (Admin Ghifari)</div>
-                <div class="font-weight-bold mt-1">0280256315</div>
-
-                <img src="{{ asset('img/logo-mandiri.png') }}" alt="" class="mt-3">
-                <div class="mt-4">PT ThriftAja Membangun Indonesia (Admin Riris)</div>
-                <div class="font-weight-bold mt-1">0280256315</div>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-center mt-5">
-            <button type="button" class="btn bg-purple rounded-0 text-white" data-toggle="modal" data-target="#paymentConfirmation" style="width: 200px;">
-                Payment Confirmation
-            </button>
+            </form>
         </div>
     </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="paymentConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="d-flex justify-content-center">
-                    <img src="{{ asset('img/icon/check-icon.png') }}" alt="" style="width: 75px;">
-                </div>
-                <h4 class="text-center font-weight-bold mt-4">Thank You!</h4>
-                <h5 class="mt-4 text-center">Have you made a payment?</h5>
-                <div class="d-flex justify-content-center mt-4">
-                    <button type="button" class="btn bg-purple rounded-0 text-white mr-4" style="width: 150px;">Already</button>
-                    <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal" style="width: 150px;">Not Yet</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 @endsection

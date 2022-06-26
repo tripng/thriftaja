@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         // Testimoni::factory(5)->create();
         Category::factory(10)->create();
-        Cart::factory(1)->create();
+        // Cart::factory(1)->create();
         
         
         // \App\Models\User::factory()->create([

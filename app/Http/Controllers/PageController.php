@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Category;
+use App\Models\User;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,9 +21,15 @@ class PageController extends Controller
     public function shop(){
         return view('landingpage.shop');
     }
-    public function cart(){
+    public function cart(User $user){
+        $cart = Cart::with('user','barang')->where('user_id','=',$user->id)->get();
+        $count_barang = 0;
+        foreach($cart as $c){
+            $count_barang += $c->barang->harga;
+        }
         return view('landingpage.cart',[
-            'carts' => $cart
+            'cart' => $cart,
+            'total' => $count_barang,
         ]);
     }
     public function detail(){

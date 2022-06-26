@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('barang_id');
             $table->foreignId('user_id');
+            // $table->integer('jumlah');
+            // $table->decimal('harga',$precision = 15);
             $table->timestamps();
         });
     }

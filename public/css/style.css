@@ -1005,6 +1005,11 @@ ol {
     opacity: 1;
     visibility: visible;
 }
+.product__item:hover .product__item__text button {
+    top: 22px;
+    opacity: 1;
+    visibility: visible;
+}
 
 .product__item:hover .product__item__text h6 {
     opacity: 0;
@@ -1103,6 +1108,21 @@ ol {
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+.product__item__text button {
+    font-size: 15px;
+    color: #e53637;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: none;
+    border: none;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all, 0.3s;

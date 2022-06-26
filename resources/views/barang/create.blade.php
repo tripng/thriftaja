@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Harga</label>
+                            <label cl\ass="col-sm-3 col-form-label">Harga</label>
                             <div class="col-sm-9">
                                 <input type="number" name="harga" class="form-control" placeholder="Harga Barang">
                             </div>
