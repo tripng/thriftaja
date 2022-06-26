@@ -12,9 +12,9 @@
             @foreach($barang as $b)
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix {{$product_filter->random()}}">
                 <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{asset('img/projek/l'.mt_rand(1,4).'.jpg')}}">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/projek/l'.mt_rand(1,4).'.jpg')}}">
                             {{-- <span class="label">New</span> --}}
-                        </div>
+                        </div></a>
                         <div class="product__item__text">
                             <h6>{{$b->nama_barang}}</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
@@ -37,7 +37,6 @@
                             </div>
                             
                         </div>
-                        <a href="#" class="mt-3 text-purple">Lihat Barang</a>
                     </div>
                 </div>
             
