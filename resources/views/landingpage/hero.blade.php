@@ -10,7 +10,7 @@
                                 <h2>Handphone Collections 2030</h2>
                                 <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                                 commitment to exceptional quality.</p>
-                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <a href="{{ url('/shop') }}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>

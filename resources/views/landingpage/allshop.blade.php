@@ -1,5 +1,17 @@
 @extends('landingpage.index')
 @section('content')
+{{-- banner --}}
+<div id="carouselExampleSlidesOnly" class="container carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="img/projek/tv.jpg" class="img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+        <img src="img/projek/l3.jpg" class="img-fluid" alt="...">
+    </div>
+</div>
+
+{{-- akhir banner --}}
 <section class="shop spad">
     <div class="container">
         <div class="row">
@@ -174,14 +186,8 @@
                         @endauth
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
-                                        <ul class="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                            <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                            </li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                                        </ul>
-                                    </div>
+                                    <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
+                                    </div></a>
                                     <div class="product__item__text">
                                         <h6>{{$b->nama_barang}}</h6>
                                         @auth()
@@ -206,18 +212,8 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         
+                                        <a href="#" class="add-cart">+ Add To Cart</a>
                                         <h5><small>Rp </small>{{number_format($b->harga,0,',','.')}}</h5>
-                                        <div class="product__color__select">
-                                            <label for="pc-40">
-                                                <input type="radio" id="pc-40">
-                                            </label>
-                                            <label class="active black" for="pc-41">
-                                                <input type="radio" id="pc-41">
-                                            </label>
-                                            <label class="grey" for="pc-42">
-                                                <input type="radio" id="pc-42">
-                                            </label>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -231,5 +227,7 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
 </section>
 @endsection
