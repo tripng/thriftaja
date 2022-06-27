@@ -31,6 +31,13 @@
                                 @else
                                     <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
                                 @endauth
+                                <div class="rating">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
                             <h5>Rp{{number_format($b->harga,0,',','.')}}</h5>
                         </div>
                     </div>
