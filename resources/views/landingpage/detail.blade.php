@@ -42,6 +42,60 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-between">
+                    <h2>{{$barang->nama_barang}}</h2>
+                    <div class="font-weight-bold"></div>
+                </div>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star-o"></i>
+                <h4 class="mt-2">{{$barang->harga_barang}}</h4>
+                <h5 class="font-weight-bold mt-2">{{$barang->stok}}</h5>
+
+                <hr>
+                <div class="font-weight-bold mt-3">Product Description</div>
+                <p class="mt-2">{{$barang->keterangan}}</p>
+
+                {{-- <div class="font-weight-bold mt-3">Dimensions</div>
+                <div class="row mt-2">
+                    <div class="col-3">
+                        <small class="font-weight-bold">Height</small>
+                        <p>110 cm</p>
+                    </div>
+                    <div class="col-3">
+                        <small class="font-weight-bold">Width</small>
+                        <p>75 cm</p>
+                    </div>
+                    <div class="col-3">
+                        <small class="font-weight-bold">Depth</small>
+                        <p>50 cm</p>
+                    </div>
+                </div> --}}
+
+                <div class="font-weight-bold mt-3">Quantity</div>
+                <div class="d-flex align-items-center">
+                    <button class="btn mr-2" style="font-size: 25px;">-</button>
+                    <div class="font-weight-bold mr-2">1</div>
+                    <button class="btn" style="font-size: 25px;">+</button>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn text-white rounded-0 mr-4 bg-purple px-4">Add to cart</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="review" class="py-4">
+        <h4 class="font-weight-bold">Reviews</h4>
+        <p class="mt-2">IPhone 13 Pro Max Black Purple 256GB Ex IBOX</p>
+        <div class="row w-100">
+            <div class="col-md-6">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__tab">

@@ -6,6 +6,7 @@
             <h1 class="h3 mb-3 fw-normal text-center ">Create an account</h1>
             <small class="d-block text-center mt-3">Already have an account? <a href="/login"> Login</a></small>
             <form method="post" action="{{route('registrasi')}}">
+              @csrf
               <div class="form-floating">
                   <label for="name">Nama</label>
                 <input value="{{old('name')}}" type="text" name="name" class="form-control rounded-top 
