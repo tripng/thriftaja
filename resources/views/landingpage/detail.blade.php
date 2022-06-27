@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-between">
-                    <h2>{{$barang->name}}</h2>
+                    <h2>{{$barang->nama_barang}}</h2>
                     <div class="font-weight-bold"></div>
                 </div>
                 <i class="fa fa-star text-warning"></i>
@@ -60,7 +60,7 @@
                 <div class="font-weight-bold mt-3">Product Description</div>
                 <p class="mt-2">{{$barang->keterangan}}</p>
 
-                <div class="font-weight-bold mt-3">Dimensions</div>
+                {{-- <div class="font-weight-bold mt-3">Dimensions</div>
                 <div class="row mt-2">
                     <div class="col-3">
                         <small class="font-weight-bold">Height</small>
@@ -74,7 +74,7 @@
                         <small class="font-weight-bold">Depth</small>
                         <p>50 cm</p>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="font-weight-bold mt-3">Quantity</div>
                 <div class="d-flex align-items-center">
@@ -85,7 +85,6 @@
 
                 <div class="mt-4">
                     <button class="btn text-white rounded-0 mr-4 bg-purple px-4">Add to cart</button>
-                    <button class="btn rounded-0 font-weight-bold text-purple">Save to favorites</button>
                 </div>
 
             </div>

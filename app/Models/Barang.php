@@ -21,4 +21,8 @@ class Barang extends Model
     public function cart(){
         return $this->hasMany(Cart::class);
     }
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
+
 }
