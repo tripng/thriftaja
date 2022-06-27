@@ -14,7 +14,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>{{$barang->nama_barang}}</h4>
+                            <h4>Hooded thermal anorak</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -22,8 +22,8 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
-                                <h3>Rp{{number_format($barang->harga,0,',','.')}} <span>70.00</span></h3>
                             </div>
+                            <h3>$270.00 <span>70.00</span></h3>
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
@@ -34,9 +34,9 @@
                             </div>
                             <div class="product__details__last__option">
                                 <ul>
-                                    <li><span>Kode:</span> {{$barang->kode_barang}}</li>
-                                    <li><span>Categories:</span> {{$barang->category->name}}</li>
-                                    <li><span>Stock:</span> {{$barang->stok}}</li>
+                                    <li><span>Kode:</span> 3812912</li>
+                                    <li><span>Categories:</span> Clothes</li>
+                                    <li><span>Stock:</span> 25</li>
                                 </ul>
                             </div>
                         </div>
@@ -158,10 +158,7 @@
                                                     <span class="fa fa-star text-warning"></span>
                                                     <span class="fa fa-star-o"></span>
                                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia autem exercitationem sequi incidunt blanditiis nihil. Ex quibusdam quisquam laudantium, labore fuga quaerat vero cupiditate animi, accusantium placeat numquam sunt.</p>
-                                                    <div class="d-flex align-items-center mt-3">
-                                                        <button class="btn mr-2" style="font-size: 20px;"><span class="fa fa-thumbs-o-up"></span></button>
-                                                        <a href="#" class="text-purple font-weight-bold">Report</a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -181,10 +178,7 @@
                                                     <span class="fa fa-star text-warning"></span>
                                                     <span class="fa fa-star-o"></span>
                                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia autem exercitationem sequi incidunt blanditiis nihil. Ex quibusdam quisquam laudantium, labore fuga quaerat vero cupiditate animi, accusantium placeat numquam sunt.</p>
-                                                    <div class="d-flex align-items-center mt-3">
-                                                        <button class="btn mr-2" style="font-size: 20px;"><span class="fa fa-thumbs-o-up"></span></button>
-                                                        <a href="#" class="text-purple font-weight-bold">Report</a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +203,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-1.jpg')}}">
                             <span class="label">New</span>
                         </div></a>
                         <div class="product__item__text">
@@ -228,7 +222,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-2.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
@@ -246,7 +240,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item sale">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-3.jpg')}}">
                             <span class="label">Sale</span>
                         </div></a>
                         <div class="product__item__text">
@@ -265,7 +259,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-4.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Diagonal Textured Cap</h6>
