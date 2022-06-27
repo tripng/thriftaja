@@ -41,8 +41,17 @@ class PageController extends Controller
             'count_barang' => $count_barang,
         ]);
     }
-    public function checkout(){
-        return view('landingpage.checkout');
+    public function checkout(Request $request){
+        $id = explode(',',$request->id);
+        $harga = explode(',',$request->harga_barang);
+        $quantity = explode(',',$request->quantity);
+        array_pop($id);
+        return view('landingpage.checkout',[
+            'items' => Barang::with(['category','user','cart'])->whereIn('id',$id)->get(),
+            'quantity' => collect($quantity),
+            'harga' => collect($harga),
+            'total' => $request->total,
+        ]);
     }
     public function product(){
         return view('landingpage.product');
@@ -62,5 +71,8 @@ class PageController extends Controller
         return view('landingpage.detail',[
             'barang' => $barang,
         ]);
+    }
+    public function profile(){
+        return view('landingpage.profile');
     }
 }

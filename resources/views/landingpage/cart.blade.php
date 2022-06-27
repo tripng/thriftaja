@@ -57,27 +57,24 @@
                             <a href="{{route('allshop')}}">Continue Shopping</a>
                         </div>
                     </div>
-                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="/updatecart"><i class="fa fa-spinner"></i> Update cart</a>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
             <div class="col-lg-4">
-                {{-- <div class="cart__discount">
-                    <h6>Discount codes</h6>
-                    <form action="#">
-                        <input type="text" placeholder="Coupon code">
-                        <button type="submit">Apply</button>
-                    </form>
-                </div> --}}
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
                         <li>Total <span id="total_harga">Rp {{number_format($count_barang->sum(),0,',','.')}}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <form method="post" action="{{route('checkout')}}">
+                        @csrf
+                        <input type="hidden" name="id" value="
+                        @foreach($cart as $c){{"$c->id".','}}@endforeach
+                        ">
+                        <input type="hidden" name="quantity" id="quantity_item" value="">
+                        <input type="hidden" name="total" id="value_total" value="">
+                        <input type="hidden" name="harga_barang" id="harga_barang" value="">
+                        <button class="primary-btn">Proceed to checkout</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -87,23 +84,40 @@
     const jumlah = document.querySelectorAll('.clsjumlah');
     const total = document.querySelectorAll('.clstotal');
     const total_harga = document.querySelector('#total_harga');
+    const quantity_item = document.querySelector('#quantity_item');
+    const harga_barang = document.querySelector('#harga_barang');
+    const value_total = document.querySelector('#value_total');
+
+
     let hargaLive = [];
+    let quantity = [];
+    let hargaperbarang = [];
         for(let i=0; i<={{$count_barang->count()-1}}; i++){
             hargaLive.push(Number(total[i].innerText.replace(/([.]|Rp)/gi,"")));
+            quantity.push(jumlah[i].value);
+            hargaperbarang.push(total[i].innerHTML);
         }
-    const rupiah = (number)=>{
+
+        const rupiah = (number)=>{
         return new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR",
         maximumFractionDigits: 0,
         }).format(number);
     }
+    value_total.value = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
+    quantity_item.value = quantity.join(',');
+    harga_barang.value = hargaperbarang.join(',');
     function totalCount(x,harga){
-        // jumlahHarga = rupiah(harga*Number(jumlah[x].value))
         jumlahHarga = harga*Number(jumlah[x].value)
         total[x].innerHTML = rupiah(jumlahHarga);
         hargaLive[x] = Number(jumlahHarga);
         total_harga.innerHTML = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
+        quantity[x] = jumlah[x].value;
+        hargaperbarang[x] = total[x].innerText;
+        quantity_item.value = quantity.join(',');
+        harga_barang.value = hargaperbarang.join(',');
+        value_total.value = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
     }
 
     function arrowQty(x, harga, state){
