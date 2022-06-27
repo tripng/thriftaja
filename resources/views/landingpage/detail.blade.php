@@ -14,7 +14,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>{{$barang->nama_barang}}</h4>
+                            <h4>Hooded thermal anorak</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -22,81 +22,26 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
-                                <h3>Rp{{number_format($barang->harga,0,',','.')}} <span>70.00</span></h3>
                             </div>
+                            <h3>$270.00 <span>70.00</span></h3>
                             <div class="product__details__cart__option">
-                                {{-- <div class="quantity">
+                                <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="text" value="1">
                                     </div>
-                                </div> --}}
-                                {{-- <a href="#" class="primary-btn">add to cart</a> --}}
+                                </div>
+                                <a href="#" class="primary-btn">add to cart</a>
                             </div>
                             <div class="product__details__last__option">
                                 <ul>
-                                    <li><span>Kode:</span> {{$barang->kode_barang}}</li>
-                                    <li><span>Categories:</span> {{$barang->category->name}}</li>
-                                    <li><span>Stock:</span> {{$barang->stok}}</li>
+                                    <li><span>Kode:</span> 3812912</li>
+                                    <li><span>Categories:</span> Clothes</li>
+                                    <li><span>Stock:</span> 25</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex justify-content-between">
-                    <h2>{{$barang->name}}</h2>
-                    <div class="font-weight-bold"></div>
-                </div>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star-o"></i>
-                <h4 class="mt-2">{{$barang->harga_barang}}</h4>
-                <h5 class="font-weight-bold mt-2">{{$barang->stok}}</h5>
-
-                <hr>
-                <div class="font-weight-bold mt-3">Product Description</div>
-                <p class="mt-2">{{$barang->keterangan}}</p>
-
-                <div class="font-weight-bold mt-3">Dimensions</div>
-                <div class="row mt-2">
-                    <div class="col-3">
-                        <small class="font-weight-bold">Height</small>
-                        <p>110 cm</p>
-                    </div>
-                    <div class="col-3">
-                        <small class="font-weight-bold">Width</small>
-                        <p>75 cm</p>
-                    </div>
-                    <div class="col-3">
-                        <small class="font-weight-bold">Depth</small>
-                        <p>50 cm</p>
-                    </div>
-                </div>
-
-                <div class="font-weight-bold mt-3">Quantity</div>
-                <div class="d-flex align-items-center">
-                    <button class="btn mr-2" style="font-size: 25px;">-</button>
-                    <div class="font-weight-bold mr-2">1</div>
-                    <button class="btn" style="font-size: 25px;">+</button>
-                </div>
-
-                <div class="mt-4">
-                    <button class="btn text-white rounded-0 mr-4 bg-purple px-4">Add to cart</button>
-                    <button class="btn rounded-0 font-weight-bold text-purple">Save to favorites</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div id="review" class="py-4">
-        <h4 class="font-weight-bold">Reviews</h4>
-        <p class="mt-2">IPhone 13 Pro Max Black Purple 256GB Ex IBOX</p>
-        <div class="row w-100">
-            <div class="col-md-6">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__tab">
@@ -159,10 +104,7 @@
                                                     <span class="fa fa-star text-warning"></span>
                                                     <span class="fa fa-star-o"></span>
                                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia autem exercitationem sequi incidunt blanditiis nihil. Ex quibusdam quisquam laudantium, labore fuga quaerat vero cupiditate animi, accusantium placeat numquam sunt.</p>
-                                                    <div class="d-flex align-items-center mt-3">
-                                                        <button class="btn mr-2" style="font-size: 20px;"><span class="fa fa-thumbs-o-up"></span></button>
-                                                        <a href="#" class="text-purple font-weight-bold">Report</a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -182,10 +124,7 @@
                                                     <span class="fa fa-star text-warning"></span>
                                                     <span class="fa fa-star-o"></span>
                                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia autem exercitationem sequi incidunt blanditiis nihil. Ex quibusdam quisquam laudantium, labore fuga quaerat vero cupiditate animi, accusantium placeat numquam sunt.</p>
-                                                    <div class="d-flex align-items-center mt-3">
-                                                        <button class="btn mr-2" style="font-size: 20px;"><span class="fa fa-thumbs-o-up"></span></button>
-                                                        <a href="#" class="text-purple font-weight-bold">Report</a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -210,46 +149,74 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-1.jpg')}}">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-1.jpg')}}">
                             <span class="label">New</span>
                         </div></a>
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
                             <h5>$67.24</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-2.jpg')}}">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-2.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
                             <h5>$67.24</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item sale">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-3.jpg')}}">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-3.jpg')}}">
                             <span class="label">Sale</span>
                         </div></a>
                         <div class="product__item__text">
                             <h6>Multi-pocket Chest Bag</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
                             <h5>$43.48</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-4.jpg')}}">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-4.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Diagonal Textured Cap</h6>
                             <a href="#" class="add-cart">+ Add To Cart</a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
                             <h5>$60.9</h5>
                         </div>
                     </div>
