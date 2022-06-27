@@ -27,7 +27,7 @@
                             <p>Country<span>*</span></p>
                             <input type="text">
                         </div> --}}
-                        <div class="checkout__input">
+                        <div class="checkout__input text-dark">
                             <p>Username<span>*</span></p>
                             <input type="text" value="{{auth()->user()->username}}" disabled class="checkout__input__add">
                         </div>

@@ -7,12 +7,38 @@
                     <h3 class="font-weight-bold">Profile</h3>
                     <p class="mt-3">Manage your profile information to control, protect and secure your account</p>
                     <hr>
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-3">
                             <div class="font-weight-bold">Name</div>
                         </div>
                         <div class="col-md-6">
-                            <div>Muhammad Asharul Maali</div>
+                            <div>{{auth()->user()->name}}</div>
+                        </div>
+                        <div class="col-md">
+                            <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeName">
+                                Change
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="font-weight-bold">Username</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>{{auth()->user()->username}}</div>
+                        </div>
+                        <div class="col-md">
+                            <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeName">
+                                Change
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="font-weight-bold">Genre</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>{{auth()->user()->genre}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeName">
@@ -25,7 +51,7 @@
                             <div class="font-weight-bold">Email</div>
                         </div>
                         <div class="col-md-6">
-                            <div>masharul51@gmail.com</div>
+                            <div>{{Str::of(auth()->user()->email)->substrReplace('********',2,Str::length(auth()->user()->email)-12)}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -38,7 +64,7 @@
                             <div class="font-weight-bold">Phone Number</div>
                         </div>
                         <div class="col-md-6">
-                            <div>085232458764</div>
+                            <div>{{Str::of(auth()->user()->no)->substrReplace('********',0,10)}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -51,7 +77,33 @@
                             <div class="font-weight-bold">Address</div>
                         </div>
                         <div class="col-md-6">
-                            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit</div>
+                            <div>{{auth()->user()->alamat}}</div>
+                        </div>
+                        <div class="col-md">
+                            <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeAddress">
+                                Change
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="font-weight-bold">Postcode</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>{{auth()->user()->kode_pos}}</div>
+                        </div>
+                        <div class="col-md">
+                            <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeAddress">
+                                Change
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="font-weight-bold">City</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>{{auth()->user()->kota}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" data-toggle="modal" data-target="#changeAddress">

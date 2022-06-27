@@ -17,9 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->enum('genre',['Laki-Laki','Perempuan']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('alamat');
+            $table->string('kota');
+            $table->integer('kode_pos');
             $table->string('no');
             $table->string('password');
             $table->rememberToken();

@@ -24,6 +24,9 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'alamat' => $this->faker->streetName(),
+            'kota' => $this->faker->cityName(),
+            'kode_pos' => $this->faker->postcode(),
+            'genre' => $this->faker->randomElement(['laki-laki','perempuan']), 
             'no' => $this->faker->phoneNumber(),
             'remember_token' => Str::random(10),
         ];

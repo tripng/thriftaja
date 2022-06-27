@@ -37,9 +37,43 @@
                   @enderror
               </div>
               <div class="form-floating">
+                <label for="jk">Jenis Kelamin</label>
+                <div class="product__details__option__size d-block">
+                  <label for="l">Laki-Laki
+                      <input type="radio" value="Laki-Laki" class="@error('alamat') is-invalid @enderror" id="l" name="genre">
+                  </label>
+                  <label for="sm">Perempuan
+                      <input type="radio" value="Perempuan" class="@error('alamat') is-invalid @enderror" name="genre">
+                  </label>
+                  @error('genre')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+              </div>
+              </div>
+              <div class="form-floating">
                   <label for="username">Alamat</label>
                 <input value="{{old('alamat')}}" type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" id="username" placeholder="Alamat">
                 @error('alamat')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+              </div>
+              <div class="form-floating">
+                  <label for="username">Kota</label>
+                <input value="{{old('kota')}}" type="text" name="kota" class="form-control @error('kota') is-invalid @enderror" id="username" placeholder="kota">
+                @error('kota')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+              </div>
+              <div class="form-floating">
+                  <label for="username">Kode Pos</label>
+                <input value="{{old('kode_pos')}}" type="text" name="kode_pos" class="form-control @error('kode_pos') is-invalid @enderror" id="username" placeholder="Kode Pos">
+                @error('kode_pos')
                   <div class="invalid-feedback">
                     {{$message}}
                   </div>

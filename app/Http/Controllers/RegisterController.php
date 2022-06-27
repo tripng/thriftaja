@@ -22,6 +22,9 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:20|',
             'no' => 'required|min:12|numeric',
             'alamat' => 'required',
+            'kota' => 'required',
+            'genre' => 'required',
+            'kode_pos' => 'required',
         ]);
 
         $validate['password'] = Hash::make($validate['password']);
