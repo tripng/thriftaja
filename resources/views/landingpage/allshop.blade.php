@@ -186,7 +186,9 @@
                         @endauth
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
+                                    <a href="{{route('detail',[
+                                        'barang' => $b->slug,
+                                    ])}}"><div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
                                     </div></a>
                                     <div class="product__item__text">
                                         <h6>{{$b->nama_barang}}</h6>
@@ -203,7 +205,7 @@
                                         </form>
                                         @else
                                         <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
-                                        @endauth()
+                                        @endauth
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>

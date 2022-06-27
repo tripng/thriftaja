@@ -24,38 +24,16 @@
             </div>
         </div>
         <div class="d-flex justify-content-evenly mt-2">
+            @foreach ($categories as $category)
             <div class="col-lg-3 ">
                 <div class="card d-block mx-auto">
-                    <a href=""><img src="img/projek/earphone1.jpg" class="card-img-top " alt="..."></a>
-                    <div class="carousel-caption d-none d-md-block text-white align-items-center">
-                        <h5>Monitor</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 ">
-                <div class="card d-block mx-auto">
-                    <a href=""><img src="img/projek/l1squaree.jpg" class="card-img-top" alt="..."></a>
+                    <a href=""><img src="img/projek/{{$category_img->random()}}" class="card-img-top" alt="..."></a>
                     <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>Setrika</h5>
+                        <h5>{{$category->name}}</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 ">
-                <div class="card d-block mx-auto">
-                    <a href=""><img src="img/projek/l2squaree.jpg" class="card-img-top" alt="..."></a>
-                    <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>Handphone</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 ">
-                <div class="card d-block mx-auto">
-                    <a href=""><img src="img/projek/l3squaree.jpg" class="card-img-top" alt="..."></a>
-                    <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>Laptop</h5>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     {{-- akhir kategori --}}
@@ -128,233 +106,33 @@
         </div>
         <div class="col-lg-12">
             <div class="row">
+                @foreach($barang as $b)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-13.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
+                        <a href="#"><div class="product__item__pic set-bg" data-setbg="{{asset('img/projek/l'.mt_rand(1,4).'.jpg')}}">
+                            {{-- <span class="label">New</span> --}}
+                        </div></a>
                         <div class="product__item__text">
-                            <h6>T-shirt Contrast Pocket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <h5>$49.66</h5>
+                            <h6>{{$b->nama_barang}}</h6>
+                                @auth()
+                                    <form action="{{route('store-cart',[
+                                        'username' => auth()->user()->username,
+                                    ])}}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{$b->id}}" name="barang_id">
+                                        <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                        <input type="hidden" value="1" name="jumlah">
+                                        <input type="hidden" value="{{$b->harga}}" name="harga">
+                                        <button class="add-cart">+ Add To Cart</button>
+                                    </form>
+                                @else
+                                    <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
+                                @endauth
+                            <h5>Rp{{number_format($b->harga,0,',','.')}}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <h5>$67.24</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                            <span class="label">Sale</span>
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Multi-pocket Chest Bag</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$43.48</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Diagonal Textured Cap</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$60.9</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
-                            <span class="label">Sale</span>
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Ankle Boots</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$98.49</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>T-shirt Contrast Pocket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$49.66</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Basic Flowing Scarf</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$26.28</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-9.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$67.24</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-10.jpg">
-                            <span class="label">Sale</span>
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Multi-pocket Chest Bag</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$43.48</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-11.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Diagonal Textured Cap</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$60.9</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-12.jpg">
-                            <span class="label">Sale</span>
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Ankle Boots</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            
-                            <h5>$98.49</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-13.jpg">
-                            {{-- <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                </li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul> --}}
-                        </div>
-                        <div class="product__item__text">
-                            <h6>T-shirt Contrast Pocket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <h5>$49.66</h5>
-                        </div>
-                    </div>
-                </div>
-                
+                @endforeach
             </div>
             
         </div>

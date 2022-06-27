@@ -18,9 +18,18 @@ class PageController extends Controller
             'product_filter' => collect(['new-arrivals','hot-sales']),
         ]);
     }
+
     public function shop(){
-        return view('landingpage.shop');
+        $category_image = collect(['earphone1.jpg','l1squaree.jpg','l2squaree.jpg','l3squaree.jpg
+        ']);
+        $category = Category::with('barang')->paginate(4);
+        return view('landingpage.shop',[
+            'category_img' => $category_image,
+            'categories' => $category,
+            'barang' => Barang::with(['category','cart'])->paginate(8),
+        ]);
     }
+    
     public function cart(User $user){
         $cart = Cart::with('user','barang')->where('user_id','=',$user->id)->get();
         $count_barang = collect([]);
@@ -31,9 +40,6 @@ class PageController extends Controller
             'cart' => $cart,
             'count_barang' => $count_barang,
         ]);
-    }
-    public function detail(){
-        return view('landingpage.detail');
     }
     public function checkout(){
         return view('landingpage.checkout');
@@ -51,5 +57,10 @@ class PageController extends Controller
         $categories = Category::latest()->paginate(10);
         return view('landingpage.categories',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function detailBarang(Barang $barang){
+        return view('landingpage.detail',[
+            'barang' => $barang,
+        ]);
     }
 }

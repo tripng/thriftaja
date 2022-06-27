@@ -24,7 +24,9 @@
             <span class="availability-status online"></span>
           </div>
           <div class="nav-profile-text">
+            @auth()
             <p class="mb-1 text-black">{{auth()->user()->username}}</p>
+            @endauth
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">

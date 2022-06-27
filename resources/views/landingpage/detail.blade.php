@@ -17,12 +17,12 @@
                             <h4>Hooded thermal anorak</h4>
                             <h3>$270.00 <span>70.00</span></h3>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
+                                {{-- <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="text" value="1">
                                     </div>
-                                </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                </div> --}}
+                                {{-- <a href="#" class="primary-btn">add to cart</a> --}}
                             </div>
                             <div class="product__details__last__option">
                                 <ul>
@@ -202,7 +202,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-1.jpg')}}">
                             <span class="label">New</span>
                         </div></a>
                         <div class="product__item__text">
@@ -214,7 +214,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-2.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Piqué Biker Jacket</h6>
@@ -225,7 +225,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item sale">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-3.jpg')}}">
                             <span class="label">Sale</span>
                         </div></a>
                         <div class="product__item__text">
@@ -237,7 +237,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{asset('img/product/product-4.jpg')}}">
                         </div></a>
                         <div class="product__item__text">
                             <h6>Diagonal Textured Cap</h6>

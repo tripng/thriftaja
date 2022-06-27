@@ -95,13 +95,14 @@
         return new Intl.NumberFormat("id-ID", {
         style: "currency",
         currency: "IDR",
-        maximumSignificantDigits : 2,
+        maximumFractionDigits: 0,
         }).format(number);
     }
     function totalCount(x,harga){
-        jumlahHarga = rupiah(harga*Number(jumlah[x].value))
-        total[x].innerHTML = jumlahHarga;
-        hargaLive[x] = Number(jumlahHarga.replace(/([.]|Rp)/gi,""));
+        // jumlahHarga = rupiah(harga*Number(jumlah[x].value))
+        jumlahHarga = harga*Number(jumlah[x].value)
+        total[x].innerHTML = rupiah(jumlahHarga);
+        hargaLive[x] = Number(jumlahHarga);
         total_harga.innerHTML = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
     }
 

@@ -17,10 +17,10 @@ Route::get('/contact', function () {
 Route::get('/',[PageController::class,'index']);
 Route::get('/home',[PageController::class,'index']);
 Route::get('/shop',[PageController::class,'shop']);
-Route::get('/detail',[PageController::class,'detail']);
 Route::get('/checkout',[PageController::class,'checkout'])->middleware('auth');
 Route::get('/category',[PageController::class,'category']);
 Route::get('/allshop',[PageController::class,'allshop'])->name('allshop');
+Route::get('/shop/{barang:slug}',[PageController::class,'detailBarang'])->name('detail');
 
 //Cart
 Route::get('/cart/{user:username}',[PageController::class,'cart'])->name('cart');
@@ -42,4 +42,4 @@ Route::get('/logout',[LoginController::class,'logout']);
 
 // Registrasi
 Route::get('/register',[RegisterController::class,'index']);
-Route::post('/register',[RegisterController::class,'store']);
+Route::post('/register',[RegisterController::class,'store'])->name('registrasi');

@@ -8,7 +8,9 @@
           <!--change to offline or busy as needed-->
         </div>
         <div class="nav-profile-text d-flex flex-column">
+          @auth()
           <span class="font-weight-bold mb-2">{{auth()->user()->username}}</span>
+          @endauth
           <span class="text-secondary text-small">Project Manager</span>
         </div>
         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -53,7 +55,9 @@
       </a>
       <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <li>{{auth()->user()->username}}</li>
+          @auth()
+          <li class="nav-item">{{auth()->user()->username}}</li>
+          @endauth
           <li class="nav-item"> <a class="nav-link" href="#"> Profile </a></li>
           <li class="nav-item"> <a class="nav-link" href="/logout"> Logout </a></li>
         </ul>

@@ -19,7 +19,7 @@
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
-                    @auth
+                    @auth()
                     <a href="{{route('cart',[auth()->user()->username])}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>{{auth()->user()->cart()->count()}}</span></a>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">

@@ -24,7 +24,7 @@
                         </form>
                     </a>
 
-                    @auth
+                    @auth()
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
                         <div class="dropdown">
                             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
