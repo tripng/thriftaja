@@ -14,7 +14,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>Hooded thermal anorak</h4>
+                            <h4>{{$barang->nama_barang}}</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -23,14 +23,27 @@
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>$270.00 <span>70.00</span></h3>
+                            <h3>Rp {{number_format($barang->harga,0,',','.')}} <span>Rp {{number_format($barang->harga+(20*100),0,',','.')}}</span></h3>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
+                                {{-- <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="text" value="1">
                                     </div>
-                                </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                </div> --}}
+                                @auth()
+                                    <form action="{{route('store-cart',[
+                                        'username' => auth()->user()->username,
+                                    ])}}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{$barang->id}}" name="barang_id">
+                                        <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                        <input type="hidden" value="1" name="jumlah">
+                                        <input type="hidden" value="{{$barang->harga}}" name="harga">
+                                        <button class="primary-btn border-0">+ Add To Cart</button>
+                                    </form>
+                                @else
+                                    <a href="{{route('login')}}" class="primary-btn">+ Add To Cart</a>
+                                @endauth
                             </div>
                             <div class="product__details__last__option">
                                 <ul>

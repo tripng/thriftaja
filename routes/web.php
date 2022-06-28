@@ -22,7 +22,8 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/category','category');
     Route::get('/allshop','allshop')->name('allshop');
     Route::get('/shop/{barang:slug}','detailBarang')->name('detail');
-    Route::get('/profile','profile')->name('profile');
+    Route::get('/profile','profile')->name('profile')->middleware('auth');
+    Route::post('/setting','update')->name('setting');
     Route::get('/cart/{user:username}','cart')->name('cart');
 });
 

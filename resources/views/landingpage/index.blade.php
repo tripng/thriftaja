@@ -33,7 +33,7 @@
 
     <!-- Offcanvas Menu Begin -->
     <!-- Offcanvas Menu End -->
-
+    @include('sweetalert::alert')
     <!-- Header Section Begin -->
     @include('landingpage/header')
     <!-- Header Section End -->
@@ -90,7 +90,6 @@
     <!-- Footer Section Begin -->
     @include ('landingpage/footer')
     <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

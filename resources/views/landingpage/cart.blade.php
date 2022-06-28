@@ -32,6 +32,7 @@
                                     </div>
                                     <div class="product__cart__item__text">
                                         <h6>{{$c->barang->nama_barang}}</h6>
+                                        <h6>Stok {{$c->barang->stok}}</h6>
                                         <h5>Rp{{number_format($c->barang->harga,0,',','.')}}</h5>
                                     </div>
                                 </td>

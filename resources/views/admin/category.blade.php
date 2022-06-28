@@ -53,13 +53,13 @@
                                     {{-- <td><img src="{{asset('storage/image/'.$m->foto)}}" alt=""></td> --}}
                                     <td>
                                         <a class="btn btn-info btn-sm" href="/categories/{{$category->slug}}/edit">
-                                            Edit<i class="bi bi-eye"></i>
+                                            <i class="bi bi-eye"></i>
                                         </a>
                                         <form action="{{ route('categories.destroy',$category->slug) }}" class="d-inline" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Menhapus category??')" title="Delete Category">
-                                                Hapus<i class="bi bi-trash"> </i>
+                                                <i class="bi bi-trash"> </i>
                                             </button>
                                         </form>
                                     </td>

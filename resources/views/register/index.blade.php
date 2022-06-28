@@ -50,7 +50,7 @@
                     {{$message}}
                   </div>
                   @enderror
-              </div>
+                </div>
               </div>
               <div class="form-floating">
                   <label for="username">Alamat</label>

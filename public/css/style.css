@@ -4053,3 +4053,7 @@ h2 {
         color: #979797;
     }
 }
+
+.nice-select.swal2-select {
+    display: none;
+}

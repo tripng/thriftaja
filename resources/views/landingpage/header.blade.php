@@ -31,7 +31,7 @@
                         @can('admin')
                         <li><a class="dropdown-item" href="/admin"><span class="icon-html5 mr-3"></span>Administrasi</a></li>
                         @endcan
-                        <li><a class="dropdown-item" href="#"><span class="icon-glass mr-3"></span>Settings</a></li>
+                        {{-- <li><a class="dropdown-item" href="#"><span class="icon-glass mr-3"></span>Settings</a></li> --}}
                         <li><a class="dropdown-item" href="/logout"><span class="icon-flag mr-3"></span>Logout</a></li>
                     </ul>
                 </div>
