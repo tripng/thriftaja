@@ -4,27 +4,14 @@
       {{-- form gambar--}}
       <div class="d-flex align-items-center">
       <div class="col-lg-6">
-            @if(session()->has('success'))
-          <div class="alert alert-success">
-            <p>{{ session('success') }}</p>
-        </div>
-          @endif
-
-          @if(session()->has('login_error'))
-          <div class="alert alert-danger">
-            <p>{{ session('login_error') }}</p>
-        </div>
-          @endif
         <small class="d-flex mb-5 justify-content-end">Don't have an account ? <a href="/register" class="text-purple">&nbsp Sign Up</a></small>
         <h4 class="font-weight-bold mb-4">Sign In</h4>
         
           <form method="POST" action="{{url('/auth')}}">
             @csrf
               <div class="text-center ">
-                <button class="w-100 rounded bg-light">
-                      <a href="#" class="btn btn-light font-weight-medium">
+                      <a href="{{route('google.login')}}" class="w-100 rounded bg-light btn btn-light font-weight-medium">
                       <i class="fa fa-google"></i>Continue with google</a> 
-                </button>
              </div>
             <div>
               <label for="username">Username</label>

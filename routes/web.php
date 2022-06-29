@@ -9,6 +9,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GoogleController;
 
 Route::get('/contact', function () {
     return view('landingpage/contact');
@@ -52,4 +53,8 @@ Route::controller(RegisterController::class)->group(function (){
     Route::get('/register','index');
     Route::post('/register','store')->name('registrasi');
 });
-// Registrasi
+
+Route::controller(GoogleController::class)->group(function (){
+    Route::get('auth/google','redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback','handleGoogleCallback')->name('google.callback');
+});

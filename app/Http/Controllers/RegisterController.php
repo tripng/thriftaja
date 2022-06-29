@@ -30,6 +30,6 @@ class RegisterController extends Controller
         $validate['password'] = Hash::make($validate['password']);
         User::create($validate);
 
-        return redirect()->route('login')->with('success','Registration successfull! Please login');
+        return redirect()->route('login')->with('toast_success','Registration successfull! Please login');
     }
 }

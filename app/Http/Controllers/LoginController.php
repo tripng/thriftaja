@@ -22,7 +22,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('home');
         }
-        return back()->with('login_error','Login Failed!');
+        return back()->with('toast_error','Login Failed!');
     }
 
     public function logout(Request $request)

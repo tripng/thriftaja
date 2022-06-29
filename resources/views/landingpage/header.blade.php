@@ -28,6 +28,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li>{{auth()->user()->username}}</li>
                         <li><a class="dropdown-item" href="{{route('profile')}}"><span class="icon-html5 mr-3"></span>Profile</a></li>
+                        <li><span class="icon-html5 mr-4"></span> {{auth()->user()->payaja}}</li>
                         @can('admin')
                         <li><a class="dropdown-item" href="/admin"><span class="icon-html5 mr-3"></span>Administrasi</a></li>
                         @endcan

@@ -5,16 +5,6 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="shopping__cart__table">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                        @endif
-                    @if ($message = Session::get('fail'))
-                        <div class="alert alert-danger">
-                            <p>{{ $message }}</p>
-                        </div>
-                        @endif
                     <table>
                         <thead>
                             <tr>
@@ -24,31 +14,63 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($cart as $c)
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="{{asset('img/shopping-cart/cart-3.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>{{$c->barang->nama_barang}}</h6>
-                                        <h6>Stok {{$c->barang->stok}}</h6>
-                                        <h5>Rp{{number_format($c->barang->harga,0,',','.')}}</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <span class="fa fa-angle-left dec qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}}),'dec'"></span>
-                                            <input class="clsjumlah" id="jumlah{{$loop->iteration}}" type="text" value="1" onchange="totalCount({{$loop->iteration-1}},{{$c->barang->harga}})">
-                                            <span class="fa fa-angle-right inc qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}},'inc')"></span>
+                                @if($cart->count() > 0)
+                                @foreach($cart as $c)
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="{{asset('img/shopping-cart/cart-3.jpg')}}" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>{{$c->barang->nama_barang}}</h6>
+                                            <h6>Stok {{$c->barang->stok}}</h6>
+                                            <h5>Rp{{number_format($c->barang->harga,0,',','.')}}</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty-2">
+                                                <span class="fa fa-angle-left dec qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}}),'dec'"></span>
+                                                <input class="clsjumlah" id="jumlah{{$loop->iteration}}" type="text" value="1" onchange="totalCount({{$loop->iteration-1}},{{$c->barang->harga}})">
+                                                <span class="fa fa-angle-right inc qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}},'inc')"></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price clstotal" id="total{{$loop->iteration}}">Rp {{number_format($c->barang->harga,0,',','.')}}</td>
+                                    <td class="cart__close">
+                                        <button class="btn btn-sm" data-toggle="modal" data-target="#exampleModal{{$c->barang->id}}" ><i class="fa fa-close"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <div class="modal fade" id="exampleModal{{$c->barang->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Apakah Anda Yakin Ingin Menghapus {{$c->barang->nama_barang}} Dari Keranjang ??
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <a class="btn btn-primary" href="{{ route('des-cart',[auth()->user()->username,$c->id])}}">Ubah</a>
                                         </div>
                                     </div>
-                                </td>
-                                <td class="cart__price clstotal" id="total{{$loop->iteration}}">Rp {{number_format($c->barang->harga,0,',','.')}}</td>
-                                <td class="cart__close"><a onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Dari Keranjang?')" href="{{route('des-cart',[auth()->user()->username,$c->id])}}"><i class="fa fa-close"></i></a></td>
-                            </tr>
-                            @endforeach
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                                @if($cart->count() ==0)
+                                    <tr>
+                                        <td colspan="3" class="text-center text-danger"><h5>Cart Kosong</h5></td>
+                                    </tr>
+                                @endif
+
+                            
                         </tbody>
                     </table>
                 </div>
@@ -81,14 +103,15 @@
         </div>
     </div>
 </section>
+
 <script>
+    // COUNT
     const jumlah = document.querySelectorAll('.clsjumlah');
     const total = document.querySelectorAll('.clstotal');
     const total_harga = document.querySelector('#total_harga');
     const quantity_item = document.querySelector('#quantity_item');
     const harga_barang = document.querySelector('#harga_barang');
     const value_total = document.querySelector('#value_total');
-
 
     let hargaLive = [];
     let quantity = [];
@@ -139,5 +162,6 @@
         jumlah[x].value = newVal;
         totalCount(x,harga)
     }
+
 </script>
 @endsection

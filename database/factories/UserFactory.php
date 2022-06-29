@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'kode_pos' => $this->faker->postcode(),
             'genre' => $this->faker->randomElement(['Laki-laki','Perempuan']), 
             'no' => $this->faker->phoneNumber(),
+            'payaja' => $this->faker->randomElement([100000,68000000,1000000,500000]),
             'remember_token' => Str::random(10),
         ];
     }
