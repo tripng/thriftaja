@@ -96,10 +96,19 @@
                     {{$message}}
                   </div>
                   @enderror
-                <p class="d-block text center">use 8 or more characters  with a mix of letters,numbers & symbols</p> <br/>
-                <p class="d-block text center">By creating an account, you agree to our
-                     <a href="#"> Terms of use</a> and <a href="#"> Privacy Policy</a>
-                </p>
+              </div>
+              <div class="form-floating">
+                <label for="conpassword">Confirm Password</label>
+                <input type="password" name="confirm_password" class="@error('confirm_password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Confirm Password">
+                @error('confirm_password')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+                  <p class="d-block text center">use 8 or more characters  with a mix of letters,numbers & symbols</p> <br/>
+                  <p class="d-block text center">By creating an account, you agree to our
+                       <a href="#"> Terms of use</a> and <a href="#"> Privacy Policy</a>
+                  </p>
               </div>
               <button class="btn btn-lg btn-primary mt-3 d-block btn-center" type="submit">Create an account</button> <br/>
             </form>

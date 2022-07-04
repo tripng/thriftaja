@@ -41,7 +41,12 @@ class PageController extends Controller
             'count_barang' => $count_barang,
         ]);
     }
-    public function checkout(Request $request){
+    public function checkout(Request $request,$username){
+        $user = User::where('username','=',$username)->first();
+        if($user->gender==null || $user->email==null){
+            return redirect()->route('profile')->with('toast_info','Lengkapi Profile Terlebih Dahulu');
+        }
+
         $id = explode(',',$request->id);
         $harga = explode(',',$request->harga_barang);
         $quantity = explode(',',$request->quantity);
@@ -81,20 +86,23 @@ class PageController extends Controller
         if($request->alamat){
             return $user->update(['alamat' => $request->alamat]) ? redirect()->route('profile')->with('toast_success','Alamat Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Alamat Tidak Dapat Diubah');
         }
+        if($request->no){
+            return $user->update(['no' => $request->no]) ? redirect()->route('profile')->with('toast_success','Alamat Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Alamat Tidak Dapat Diubah');
+        }
         else if($request->username){
             return $user->update(['username' => $request->username]) ? redirect()->route('profile')->with('toast_success','Username Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Username Tidak Dapat Diubah');
         }
         else if($request->name){
             return $user->update(['name' => $request->name]) ? redirect()->route('profile')->with('toast_success','Name Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Name Tidak Dapat Diubah');
         }
-        else if($request->genre){
-            return $user->update(['genre' => $request->genre]) ? redirect()->route('profile')->with('toast_success','Genre Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Genre Tidak Dapat Diubah');
+        else if($request->gender){
+            return $user->update(['gender' => $request->gender]) ? redirect()->route('profile')->with('toast_success','Gender Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Gender Tidak Dapat Diubah');
         }
         else if($request->postcode){
             return $user->update(['kode_pos' => $request->postcode]) ? redirect()->route('profile')->with('toast_success','Kode Pos Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Kode Pos Tidak Dapat Diubah');
         }
-        else if($request->city){
-            return $user->update(['kota' => $request->city]) ? redirect()->route('profile')->with('toast_success','City Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Genre Tidak Dapat Diubah');
+        else if($request->kota){
+            return $user->update(['kota' => $request->kota]) ? redirect()->route('profile')->with('toast_success','City Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Genre Tidak Dapat Diubah');
         }
     }
 }

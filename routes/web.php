@@ -19,7 +19,8 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/','index');
     Route::get('/home','index');
     Route::get('/shop','shop');
-    Route::post('/checkout','checkout')->middleware('auth')->name('checkout');
+    // Route::post('/checkout/{user:username}','checkout')->middleware('auth')->name('checkout');
+    Route::get('/checkout/{user:username}','checkout')->middleware('auth')->name('checkout');
     Route::get('/category','category');
     Route::get('/allshop','allshop')->name('allshop');
     Route::get('/shop/{barang:slug}','detailBarang')->name('detail');
@@ -31,6 +32,7 @@ Route::controller(PageController::class)->group(function (){
 Route::controller(CartController::class)->group(function (){
     Route::post('/cart/{username}','store')->name('store-cart');
     Route::get('/des-cart/{username}/{id}','destroy')->name('des-cart');
+    Route::post('/transaksi','transaksi')->name('buy')->middleware('auth');
 });
 // Route::get('/thrift/barang()',[PageController::class,'category']);
 
@@ -38,6 +40,8 @@ Route::controller(CartController::class)->group(function (){
 Route::controller(AdminController::class)->group(function (){
     Route::get('/admin','index')->middleware('admin');
     Route::get('/admin/barang/{barang:slug}','detailBarang')->name('detail-barang')->middleware('admin');
+    Route::get('/pembeli','pembeli')->name('pembeli')->middleware('admin');
+    Route::get('/penjualan','penjualan')->name('penjualan')->middleware('admin');
 });
 
 Route::resource('/barang',BarangController::class)->middleware('admin');
@@ -47,6 +51,7 @@ Route::controller(LoginController::class)->group(function (){
     Route::get('/login','index')->name('login')->middleware('guest');
     Route::post('/auth','authenticate');
     Route::get('/logout','logout');
+    Route::get('/resetpassword','resetPassword')->name('resetpassword')->middleware('guest');
 });
 
 Route::controller(RegisterController::class)->group(function (){

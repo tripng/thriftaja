@@ -35,10 +35,10 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-3">
-                            <div class="font-weight-bold">Genre</div>
+                            <div class="font-weight-bold">Gender</div>
                         </div>
                         <div class="col-md-6">
-                            <div id="value_genre">{{auth()->user()->genre}}</div>
+                            <div id="value_genre">{{auth()->user()->gender}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" id="genreChange" data-toggle="modal" data-target="#jenkel">
@@ -64,7 +64,11 @@
                             <div class="font-weight-bold">Phone Number</div>
                         </div>
                         <div class="col-md-6">
-                            <div id="value_no">{{Str::of(auth()->user()->no)->substrReplace('********',0,10)}}</div>
+                            <div id="value_no">
+                                @if(auth()->user()->no != 0)
+                                {{Str::of(auth()->user()->no)->substrReplace('********',0,10)}}
+                                @endif
+                            </div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" onclick="runModal('changeNo')" id="noChange" data-toggle="modal" data-target="#changeNo">
@@ -166,10 +170,10 @@
                     <label for="name">Name</label>
                     <div class="product__details__option__size d-block">
                         <label for="l">Laki-Laki
-                            <input type="radio" value="laki-Laki" id="l" name="genre">
+                            <input type="radio" value="laki-Laki" id="l" name="gender">
                         </label>
                         <label for="sm">Perempuan
-                            <input type="radio" value="perempuan" id="sm" name="genre">
+                            <input type="radio" value="perempuan" id="sm" name="gender">
                         </label>
                         <input type="hidden" name="id" value="{{auth()->user()->id}}">
                       </div>

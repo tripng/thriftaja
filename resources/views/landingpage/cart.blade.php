@@ -30,9 +30,9 @@
                                     <td class="quantity__item">
                                         <div class="quantity">
                                             <div class="pro-qty-2">
-                                                <span class="fa fa-angle-left dec qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}}),'dec'"></span>
+                                                <span class="fa fa-angle-left dec qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}}),'dec',{{$c->barang->stok}}"></span>
                                                 <input class="clsjumlah" id="jumlah{{$loop->iteration}}" type="text" value="1" onchange="totalCount({{$loop->iteration-1}},{{$c->barang->harga}})">
-                                                <span class="fa fa-angle-right inc qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}},'inc')"></span>
+                                                <span class="fa fa-angle-right inc qtybtn" onclick="arrowQty({{$loop->iteration-1}},{{$c->barang->harga}},'inc',{{$c->barang->stok}})"></span>
                                             </div>
                                         </div>
                                     </td>
@@ -47,13 +47,13 @@
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Hapus {{$c->barang->nama_barang}}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         </div>
                                         <div class="modal-body">
-                                        Apakah Anda Yakin Ingin Menghapus {{$c->barang->nama_barang}} Dari Keranjang ??
+                                        Apakah Anda Yakin??
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -88,21 +88,44 @@
                     <ul>
                         <li>Total <span id="total_harga">Rp {{number_format($count_barang->sum(),0,',','.')}}</span></li>
                     </ul>
-                    <form method="post" action="{{route('checkout')}}">
+                    <form method="get" action="{{route('checkout',auth()->user()->username)}}">
                         @csrf
-                        <input type="hidden" name="id" value="
-                        @foreach($cart as $c){{"$c->id".','}}@endforeach
-                        ">
+                        <input type="hidden" name="id" value="@foreach($cart as $c){{"$c->id".','}}@endforeach">
                         <input type="hidden" name="quantity" id="quantity_item" value="">
                         <input type="hidden" name="total" id="value_total" value="">
                         <input type="hidden" name="harga_barang" id="harga_barang" value="">
+                        @if($cart->count() > 0)
                         <button class="primary-btn">Proceed to checkout</button>
+                        @endif
+                        @if($cart->count() == 0)
+                        <a type="button" class="primary-btn text-light" data-toggle="modal" data-target="#modalInfoAddCart" >Proceed to checkout</a>
+                        @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{{-- Modal --}}
+<div class="modal fade" id="modalInfoAddCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart Kosong</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        Silahkan Masukkan Cart Terlebih Dahulu
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Oke</button>
+        </div>
+    </div>
+    </div>
+</div>
 
 <script>
     // COUNT
@@ -144,12 +167,17 @@
         value_total.value = rupiah(hargaLive.reduce((pv, cv) => pv + cv, 0));
     }
 
-    function arrowQty(x, harga, state){
+    function arrowQty(x, harga, state,stok){
+        console.log(stok);
         var oldValue = jumlah[x].value;
         var newVal = 0;
 
         if (state == 'inc') {
-            newVal = parseFloat(oldValue) + 1;
+            if(oldValue < stok){
+                newVal = parseFloat(oldValue) + 1;
+            }else{
+                newVal = stok;
+            }
         } else {
             console.log(newVal)
             if (oldValue > 0) {

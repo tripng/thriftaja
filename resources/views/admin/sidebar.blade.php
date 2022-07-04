@@ -35,14 +35,14 @@
         <i class="mdi mdi-chart-bar menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
+    {{-- <li class="nav-item">
+      <a class="nav-link" href="{{route('penjualan')}}">
         <span class="menu-title">Penjualan</span>
         <i class="mdi mdi-chart-bar menu-icon"></i>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ url('/pembeli') }}">
+      <a class="nav-link" href="{{route('pembeli')}}">
         <span class="menu-title">Data Pembeli</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>

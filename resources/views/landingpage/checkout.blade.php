@@ -1,9 +1,16 @@
 @extends('landingpage.index')
 @section('content')
+<style>
+    .checkout__input input.is-invalid{
+        border-color: rgb(170, 37, 37) !important;
+    }
+  </style>
+
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form action="#">
+            <form action="{{route('buy')}}" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         {{-- <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
@@ -28,27 +35,49 @@
                             <input type="text">
                         </div> --}}
                         <div class="checkout__input text-dark">
+                            <p>Nama<span>*</span></p>
+                            @error('name')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="text" value="{{auth()->user()->name}}" name="name" class="checkout__input__add @error('name') is-invalid @enderror">
+                        </div>
+                        <div class="checkout__input text-dark">
                             <p>Username<span>*</span></p>
-                            <input type="text" value="{{auth()->user()->username}}" disabled class="checkout__input__add">
+                            <input type="text" value="{{auth()->user()->username}}" disabled class="checkout__input__add @error('username') is-invalid @enderror">
                         </div>
                         <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address" value="{{auth()->user()->alamat}}" class="checkout__input__add">
-                            <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                            <p>Alamat<span>*</span></p>
+                            @error('address')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="text" placeholder="Nama Jalan" value="{{auth()->user()->alamat}}" name="address" class="checkout__input__add @error('address') is-invalid @enderror">
+                            @error('detail_address')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="text" placeholder="Gedung,No Rumah" name="detail_address" class="@error('detail_address') is-invalid @enderror">
                         </div>
                         <div class="checkout__input">
-                            <p>Town/City<span>*</span></p>
-                            <input type="text">
+                            <p>Kota<span>*</span></p>
+                            @error('city')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="text" name="city" value="{{auth()->user()->kota}}" class=" @error('city') is-invalid @enderror ">
                         </div>
                         <div class="checkout__input">
-                            <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text">
+                            <p>Kode Pos<span>*</span></p>
+                            @error('postcode')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="number" value="{{auth()->user()->kode_pos}}" name="postcode" class="@error('postcode') is-invalid @enderror">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
-                                    <input type="text" value="{{auth()->user()->no}}" disabled>
+                                    <p>No Handphone<span>*</span></p>
+                                    @error('handphone')
+                                        <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                                    @enderror
+                                    <input type="text" value="{{auth()->user()->no}}" name="handphone" class="@error('handphone') is-invalid @enderror">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -59,8 +88,11 @@
                             </div>
                         </div>
                         <div class="checkout__input">
-                            <p>Account Password<span>*</span></p>
-                            <input type="text">
+                            <p>Password<span>*</span></p>
+                            @error('detail_address')
+                                <h6 class="mt-0 text-danger"><small>{{$message}}</small></h6>
+                            @enderror
+                            <input type="password" name="password" class="@error('address') is-invalid @enderror">
                         </div>
                         {{-- <div class="checkout__input__checkbox">
                             <label for="diff-acc">
@@ -70,9 +102,9 @@
                             </label>
                         </div> --}}
                         <div class="checkout__input">
-                            <p>Order notes</p>
+                            <p>Catatan</p>
                             <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
+                                placeholder="Catatan kepada penjual" name="notes">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -111,7 +143,10 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div> --}}
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                            <input type="hidden" name="total_payment" value="{{$total}}">
+                            <input type="hidden" name="id" value="{{auth()->user()->id}}">
+                            <input type="hidden" name="jumlah" value={{$quantity->implode(',')}}>
+                            <button class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>
                 </div>

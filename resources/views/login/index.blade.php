@@ -15,12 +15,22 @@
              </div>
             <div>
               <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="username">
+              <input type="text" class="@error('password') is-invalid @enderror form-control" id="username" name="username" placeholder="username">
+              @error('username')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
             </div>
             <div>
                 <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-              <small class="d-block text-right "><a href="#" class="text-purple"> Forget your password?</a></small>
+              <input type="password" class="@error('password') is-invalid @enderror form-control" id="password" name="password" placeholder="Password">
+              @error('password')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+                  @enderror
+              <small class=" d-block text-right "><a href="{{route('resetpassword')}}" class="text-purple"> Forget your password?</a></small>
             </div>
             <div class="d-flex justify-content-center">
             <button class="btn btn-primary w-50 mt-4" type="submit">Login</button>

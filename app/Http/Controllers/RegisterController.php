@@ -24,6 +24,7 @@ class RegisterController extends Controller
             'alamat' => 'required',
             'kota' => 'required',
             'genre' => 'required',
+            'confirm_password' => 'required|same:password',
             'kode_pos' => 'required',
         ]);
 

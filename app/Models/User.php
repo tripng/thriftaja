@@ -43,4 +43,7 @@ class User extends Authenticatable
     public function barang(){
         return $this->belongsToMany(Barang::class);
     }
+    public function transaksi(){
+        return $this->hasMany(Transaksi::class);
+    }
 }

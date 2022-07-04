@@ -19,7 +19,10 @@ class Barang extends Model
         return $this->belongsTo(Category::class);
     }
     public function cart(){
-        return $this->hasMany(Cart::class);
+        return $this->hasOne(Cart::class);
+    }
+    public function rincian_barang(){
+        return $this->hasOne(RincianBarang::class);
     }
     public function user(){
         return $this->belongsToMany(User::class);
