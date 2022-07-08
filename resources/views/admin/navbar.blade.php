@@ -20,12 +20,12 @@
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
-            <img src="{{ asset('img/projek/me.jpg') }}" alt="image">
+            <img src="{{asset('storage/profile/'.auth()->user()->foto)}}" alt="image">
             <span class="availability-status online"></span>
           </div>
           <div class="nav-profile-text">
             @auth()
-            <p class="mb-1 text-black">{{auth()->user()->username}}</p>
+            <p class="mb-1 text-black">Admin</p>
             @endauth
           </div>
         </a>
@@ -33,6 +33,8 @@
           <a class="dropdown-item" href="{{ url('/home') }}">
             <i class="mdi mdi-cached me-2 text-success"></i> Home </a>
           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{route('profile')}}">
+            <i class="bi bi-person-circle me-2 text-dark"></i> Profile </a>
           <a class="dropdown-item" href="/logout">
             <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
         </div>

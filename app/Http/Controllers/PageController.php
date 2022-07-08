@@ -82,7 +82,7 @@ class PageController extends Controller
     }
     
     public function update(Request $request){
-        $user = User::where('id',$request->id)->first();
+        $user = User::where('id',auth()->user()->id)->first();
         if($request->alamat){
             return $user->update(['alamat' => $request->alamat]) ? redirect()->route('profile')->with('toast_success','Alamat Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Alamat Tidak Dapat Diubah');
         }
@@ -103,6 +103,12 @@ class PageController extends Controller
         }
         else if($request->kota){
             return $user->update(['kota' => $request->kota]) ? redirect()->route('profile')->with('toast_success','City Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Genre Tidak Dapat Diubah');
+        }
+        else if($request->foto){
+            $foto_profile = $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storePubliclyAs('profile',$request->file('foto')->getClientOriginalName(),'public');
+
+            return $user->update(['foto' => $foto_profile]) ? redirect()->route('profile')->with('toast_success','Foto Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Foto Gagal Diubah');
         }
     }
 }

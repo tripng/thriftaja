@@ -119,10 +119,14 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body p-0">
-                            <img src="{{ asset('img/instagram/instagram-5.jpg') }}" alt="" class="w-100">
+                            <img src="{{asset('storage/profile/'.auth()->user()->foto)}}" alt="" class="w-100">
                         </div>
                     </div>
-                    <button class="btn bg-purple text-white rounded-0 w-100 mt-4">Choose Photo</button>
+                    <form action="{{route('setting')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" class="btn btn-primary bg-purple text-white rounded-0 w-100 mt-2" name="foto"></input>
+                        <button class="btn-info w-100 border-0 mt-2" style="height:40px;">Update Foto</button>
+                    </form>
                     <p class="mt-4"><small>File size: maximum 10,000,000 bytes (10 Mb).<br>Allowed file extensions: .JPG, .JPEG, .PNG</small></p>
                 </div>
             </div>

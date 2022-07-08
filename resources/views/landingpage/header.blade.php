@@ -23,7 +23,7 @@
                     <a href="{{route('cart',[auth()->user()->username])}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>{{auth()->user()->cart()->count()}}</span></a>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('img/icon/person-circle.svg')}}" alt="">
+                        <img src="{{asset('storage/profile/'.auth()->user()->foto)}}" class="rounded-circle" style="width:40px; height:40px;" alt="">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li>{{auth()->user()->username}}</li>

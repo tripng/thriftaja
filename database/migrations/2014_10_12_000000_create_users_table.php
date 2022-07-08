@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->string('foto')->default('me.jpg');
             $table->enum('gender',['Laki-Laki','Perempuan'])->nullable();
             $table->string('email')->unique();
             $table->string('google_id')->nullable();
