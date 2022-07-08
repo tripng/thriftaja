@@ -32,6 +32,16 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kategori</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="category_id">
+                                    @foreach($categories as $category)
+                                    <option @if($barang->category_id == $category->id) {{'selected'}} @else {{''}} @endif value="{{ $category->id }}" class="text-dark">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Harga</label>
                             <div class="col-sm-9">
                                 <input type="number" name="harga" value="{{ $barang->harga }}" class="form-control" placeholder="Harga Barang">
@@ -46,7 +56,8 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Foto</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control" name="foto" value="{{ $barang->foto }}" />
+                                <img src="{{asset('storage/image/'.$barang->foto)}}" style="width:50%;" alt="">
+                                <input type="file" class="form-control" name="foto" />
                             </div>
                         </div>
                         <div class="form-group row">

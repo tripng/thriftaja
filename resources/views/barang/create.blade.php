@@ -33,10 +33,10 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kategori Barang</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="kategori_barang_id">
+                                <select class="form-control" name="category_id">
                                     <option value="">-- Pilih Kategori Barang --</option>
-                                    @foreach($kategori_barang as $kat)
-                                    <option value="{{ $kat->id }}">{{ $kat->nama }}</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" class="text-dark">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

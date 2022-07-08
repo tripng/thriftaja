@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BarangController extends Controller
 {
@@ -25,7 +27,9 @@ class BarangController extends Controller
 
     {
 
-        return view('barang.create');
+        return view('barang.create',[
+            'categories' => Category::with('barang')->get(), 
+        ]);
 
     }
     /**
@@ -45,8 +49,8 @@ class BarangController extends Controller
             'foto' => 'required',
             'keterangan' => 'required',
         ]);
-
-        // $input = $request->all();
+        $validate['category_id'] = $request->category_id;
+        $validate['slug'] = Str::of($request->nama_barang)->slug('-');
 
         $validate['foto'] = $request->file('foto')->getClientOriginalName();
         $request->file('foto')->storePubliclyAs('image',$request->file('foto')->getClientOriginalName(),'public');
@@ -88,7 +92,10 @@ class BarangController extends Controller
 
     {
 
-        return view('barang.edit',compact('barang'));
+        return view('barang.edit',[
+            'barang' => $barang,
+            'categories' => Category::with('barang')->get(),
+        ]);
 
     }
 
@@ -105,7 +112,7 @@ class BarangController extends Controller
     public function update(Request $request, barang $barang)
     {
 
-        $request->validate([
+        $validate = $request->validate([
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'harga' => 'required',
@@ -114,15 +121,13 @@ class BarangController extends Controller
             'keterangan' => 'required',
         ]);
 
+        $validate['category_id'] = $request->category_id;
+        $validate['slug'] = Str::of($request->nama_barang)->slug('-');
+        $validate['foto'] = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storePubliclyAs('image',$request->file('foto')->getClientOriginalName(),'public');
+        $barang->update($validate);
 
-
-        $barang->update($request->all());
-
-
-
-        return redirect()->route('barang.index')
-
-                        ->with('success','barang updated successfully');
+        return redirect()->route('barang.index')->with('success','barang updated successfully');
 
     }
 
