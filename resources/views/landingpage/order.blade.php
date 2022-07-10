@@ -24,15 +24,34 @@
                     <p class="font-weight-bold">Total : Rp. {{number_format($b->price,0,',','.')}}</p>
                     <a href="{{route('detail',['barang' => $b->barang->slug])}}" class="btn btn-primary">Lihat Barang</a>
                     @if($cek)
-                        <form class="d-flex" action="{{route('cancel',['barang' => $b->barang->slug])}}" method="post">
-                            @csrf
-                            <input type="hidden" value={{$t->order_number}} name="transaksi">
-                            <button class="btn btn-sm btn-danger mt-2">Batal Pembelian</button>
+                        <div class="cancel d-flex">
+                            <button class="btn btn-sm btn-danger mt-2" type="button" data-toggle="modal" data-target="#exampleModal{{$loop->iteration}}">Batal Pembelian</button>
                             <p class="timer  ml-3 text-danger align-self-center" title="{{Illuminate\Support\Carbon::create($t->created_at)->addMinutes(15)}}"></p>
-                        </form>
+                        </div>
                     @endif
                 </div>
             </div>
+
+            <div class="modal fade" id="exampleModal{{$loop->iteration}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Ingin Membatalkan Pesanan?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <form class="d-flex" action="{{route('cancel',['barang' => $b->barang->slug])}}" method="post">
+                        @csrf
+                        <input type="hidden" value={{$t->order_number}} name="transaksi">
+                        <button class="btn btn-primary">Batalkan</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             @endforeach
         </div>
     @endforeach
