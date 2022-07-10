@@ -16,12 +16,22 @@
                         <div class="product__details__text">
                             <h4>{{$barang->nama_barang}}</h4>
                             <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
+                                @foreach(range(1,5) as $r)
+                                    @php
+                                        if($barang->testimoni->count() > 0){
+                                            $count = array_column($barang->testimoni->all(),'rating');
+                                            if($r <= collect($count)->avg()){
+                                                echo '<i class="fa fa-star text-warning"></i>';
+                                            }
+                                            else{
+                                                echo '<i class="fa fa-star-o"></i>';
+                                            }
+                                        }else{
+                                            echo '<i class="fa fa-star-o"></i>';
+                                        }
+                                    @endphp
+                                @endforeach
+                                <span> - {{$penilaian->count()}} Reviews</span>
                             </div>
                             <h3>Rp {{number_format($barang->harga,0,',','.')}} <span>Rp {{number_format($barang->harga+(20*100),0,',','.')}}</span></h3>
                             <div class="product__details__cart__option">
@@ -108,13 +118,7 @@
                                                     <p>5 days ago</p>
                                                 </div>
                                                 <div class="col-md p-0">
-                                                    @foreach(range(1,5) as $r)
-                                                        @if($r <= $p->rating)
-                                                            <span class="fa fa-star text-warning"></span>
-                                                        @else
-                                                            <span class="fa fa-star-o"></span>
-                                                        @endif
-                                                    @endforeach
+                                                    bintang
                                                     <p>{{$p->komentar}}</p>
                                                 </div>
                                             </div>
@@ -161,80 +165,50 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-1.jpg')}}">
-                            <span class="label">New</span>
-                        </div></a>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
+                @foreach($related as $rel)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
+                        <div class="product__item">
+                            <a href="{{route('detail',['barang' => $rel->slug])}}"><div class="product__item__pic set-bg" data-setbg="{{ asset('storage/image/'.$rel->foto)}}">
+                                {{-- <span class="label">New</span> --}}
+                            </div></a>
+                            <div class="product__item__text">
+                                <h6>{{$rel->nama_barang}}</h6>
+                                    @auth()
+                                        <form action="{{route('store-cart',[
+                                            'username' => auth()->user()->username,
+                                        ])}}" method="post">
+                                            @csrf
+                                            <input type="hidden" value="{{$rel->id}}" name="barang_id">
+                                            <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                            <input type="hidden" value="1" name="jumlah">
+                                            <input type="hidden" value="{{$rel->harga}}" name="harga">
+                                            <button class="add-cart">+ Add To Cart</button>
+                                        </form>
+                                        @else
+                                        <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
+                                    @endauth
+                                <div class="rating">
+                                    @foreach(range(1,5) as $r)
+                                    @php
+                                        if($rel->testimoni->count() > 0){
+                                            $count = array_column($rel->testimoni->all(),'rating');
+                                            if($r <= collect($count)->avg()){
+                                                echo '<i class="fa fa-star text-warning"></i>';
+                                            }
+                                            else{
+                                                echo '<i class="fa fa-star-o"></i>';
+                                            }
+                                        }else{
+                                            echo '<i class="fa fa-star-o"></i>';
+                                        }
+                                    @endphp
+                                @endforeach
+                                </div>
+                                <h5>Rp {{number_format($rel->harga,0,',','.')}}</h5>
                             </div>
-                            <h5>$67.24</h5>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-2.jpg')}}">
-                        </div></a>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$67.24</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item sale">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-3.jpg')}}">
-                            <span class="label">Sale</span>
-                        </div></a>
-                        <div class="product__item__text">
-                            <h6>Multi-pocket Chest Bag</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$43.48</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <a href=""><div class="product__item__pic set-bg" data-setbg="{{ asset('img/product/product-4.jpg')}}">
-                        </div></a>
-                        <div class="product__item__text">
-                            <h6>Diagonal Textured Cap</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$60.9</h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach()
             </div>
         </div>
     </section>

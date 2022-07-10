@@ -17,10 +17,12 @@ use Illuminate\Support\Carbon;
 class PageController extends Controller
 {
     public function index(){
+        $barang = Barang::with('category','testimoni')->get();
         return view ('landingpage.home',[
             // 'barang' => Barang::find(1)->testimoni,
-            'barang' => Barang::with('category')->get(),
+            'barang' => $barang,
             'product_filter' => collect(['new-arrivals','hot-sales']),
+            // 'testimoni' => Testimoni::with('barang','user')->get(),
         ]);
     }
 
@@ -31,7 +33,7 @@ class PageController extends Controller
         return view('landingpage.shop',[
             'category_img' => $category_image,
             'categories' => $category,
-            'barang' => Barang::with(['category','cart'])->paginate(8),
+            'barang' => Barang::with(['category','cart','testimoni'])->paginate(8),
         ]);
     }
     
@@ -84,7 +86,8 @@ class PageController extends Controller
     public function detailBarang(Barang $barang){
         return view('landingpage.detail',[
             'barang' => $barang,
-            'penilaian' => Testimoni::with('barang')->where('barang_id','=',$barang->id)->get(), 
+            'penilaian' => Testimoni::with('barang')->where('barang_id','=',$barang->id)->get(),
+            'related' => Barang::where('category_id','=',$barang->category_id)->whereNot('slug','=',$barang->slug)->paginate(4),
         ]);
     }
     public function profile(){

@@ -210,11 +210,21 @@
                                         <a href="{{route('login')}}" class="add-cart">+ Add To Cart</a>
                                         @endauth
                                         <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
+                                            @foreach(range(1,5) as $r)
+                                                @php
+                                                    if($b->testimoni->count() > 0){
+                                                        $count = array_column($b->testimoni->all(),'rating');
+                                                        if($r <= collect($count)->avg()){
+                                                            echo '<i class="fa fa-star text-warning"></i>';
+                                                        }
+                                                        else{
+                                                            echo '<i class="fa fa-star-o"></i>';
+                                                        }
+                                                    }else{
+                                                        echo '<i class="fa fa-star-o"></i>';
+                                                    }
+                                                @endphp
+                                            @endforeach
                                         </div>
                                         
                                         <h5><small>Rp </small>{{number_format($b->harga,0,',','.')}}</h5>
