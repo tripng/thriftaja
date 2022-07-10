@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Cart;
 use App\Models\Transaksi;
 use App\Models\RincianBarang;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
@@ -83,6 +84,7 @@ class PageController extends Controller
     public function detailBarang(Barang $barang){
         return view('landingpage.detail',[
             'barang' => $barang,
+            'penilaian' => Testimoni::with('barang')->where('barang_id','=',$barang->id)->get(), 
         ]);
     }
     public function profile(){
@@ -135,5 +137,10 @@ class PageController extends Controller
             'transaksi' => $transaksi,
         ])->with('i', (request()->input('page', 1) - 1) * 5);
         
+    }
+    public function comment(Barang $barang){
+        return view('landingpage.comment',[
+            'barang' => $barang,
+        ]);
     }
 }

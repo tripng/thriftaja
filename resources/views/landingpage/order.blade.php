@@ -23,10 +23,11 @@
                     <hr>
                     <p class="font-weight-bold">Total : Rp. {{number_format($b->price,0,',','.')}}</p>
                     <a href="{{route('detail',['barang' => $b->barang->slug])}}" class="btn btn-primary">Lihat Barang</a>
+                    <a href="{{route('comment',['barang' => $b->barang->slug])}}" class="btn btn-info">Komentar</a>
                     @if($cek)
                         <div class="cancel d-flex">
                             <button class="btn btn-sm btn-danger mt-2" type="button" data-toggle="modal" data-target="#exampleModal{{$loop->iteration}}">Batal Pembelian</button>
-                            <p class="timer  ml-3 text-danger align-self-center" title="{{Illuminate\Support\Carbon::create($t->created_at)->addMinutes(15)}}"></p>
+                            <p class="timer  ml-3 pt-2 text-danger align-self-center" title="{{Illuminate\Support\Carbon::create($t->created_at)->addMinutes(15)}}"></p>
                         </div>
                     @endif
                 </div>

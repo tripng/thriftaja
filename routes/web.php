@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\RatingController;
 
 Route::get('/contact', function () {
     return view('landingpage/contact');
@@ -28,6 +29,7 @@ Route::controller(PageController::class)->group(function (){
     Route::post('/setting','update')->name('setting');
     Route::get('/cart/{user:username}','cart')->name('cart');
     Route::get('/pesanan','pesananSaya')->name('pesanan_saya');
+    Route::get('/komentar/{barang:slug}','comment')->name('comment')->middleware('auth');
 });
 
 Route::controller(CartController::class)->group(function (){
@@ -65,3 +67,5 @@ Route::controller(GoogleController::class)->group(function (){
     Route::get('auth/google','redirectToGoogle')->name('google.login');
     Route::get('auth/google/callback','handleGoogleCallback')->name('google.callback');
 });
+
+Route::resource('/rating',RatingController::class)->middleware('auth');

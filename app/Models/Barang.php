@@ -27,5 +27,8 @@ class Barang extends Model
     public function user(){
         return $this->belongsToMany(User::class);
     }
+    public function testimoni(){
+        return $this->hasMany(Testimoni::class);
+    }
 
 }

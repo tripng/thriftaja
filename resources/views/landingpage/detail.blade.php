@@ -73,7 +73,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Customer
-                                    Previews(5)</a>
+                                    Previews({{$penilaian->count()}})</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -97,7 +97,30 @@
                                 </div>
                                 <div class="tab-pane" id="tabs-6" role="tabpanel">
                                     <div class="product__details__tab__content">
+                                        @foreach($penilaian as $p)
                                         <div class="product__details__tab__content__item">
+                                            <div class="row mt-4">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('storage/profile/'.$p->user->foto) }}" alt="" class="rounded-circle w-100">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h5 class="font-weight-bold">{{$p->user->username}}</h5>
+                                                    <p>5 days ago</p>
+                                                </div>
+                                                <div class="col-md p-0">
+                                                    @foreach(range(1,5) as $r)
+                                                        @if($r <= $p->rating)
+                                                            <span class="fa fa-star text-warning"></span>
+                                                        @else
+                                                            <span class="fa fa-star-o"></span>
+                                                        @endif
+                                                    @endforeach
+                                                    <p>{{$p->komentar}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        {{-- <div class="product__details__tab__content__item">
                                             <div class="row mt-4">
                                                 <div class="col-md-1">
                                                     <img src="{{ asset('img/about/testimonial-author.jpg') }}" alt="" class="rounded-circle" style="width: 70px;">
@@ -116,27 +139,7 @@
                                                     
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="product__details__tab__content__item">
-                                            <div class="row mt-4">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('img/about/testimonial-author.jpg') }}" alt="" class="rounded-circle" style="width: 70px;">
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <h5 class="font-weight-bold">As**ul</h5>
-                                                    <p>5 days ago</p>
-                                                </div>
-                                                <div class="col-md p-0">
-                                                    <span class="fa fa-star text-warning"></span>
-                                                    <span class="fa fa-star text-warning"></span>
-                                                    <span class="fa fa-star text-warning"></span>
-                                                    <span class="fa fa-star text-warning"></span>
-                                                    <span class="fa fa-star-o"></span>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia autem exercitationem sequi incidunt blanditiis nihil. Ex quibusdam quisquam laudantium, labore fuga quaerat vero cupiditate animi, accusantium placeat numquam sunt.</p>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

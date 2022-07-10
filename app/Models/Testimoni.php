@@ -11,7 +11,7 @@ class Testimoni extends Model
     protected $guarded = ['id'];
 
     public function barang(){
-        return $this->belogsTo(Barang::class);
+        return $this->belongsTo(Barang::class);
     }
 
     public function user(){
