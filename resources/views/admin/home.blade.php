@@ -72,7 +72,7 @@
                         @foreach($user as $u)
                         <tr>
                         <td>
-                            <img src="{{asset('assets/images/faces/face'.($loop->index + 2).'.jpg')}}" class="me-2" alt="image"> {{$u->name}}
+                            <img src="{{asset('storage/profile/'.$u->foto)}}" class="me-2" alt="image"> {{$u->name}}
                         </td>
                         <td> {{$u->email}} </td>
                         <td>

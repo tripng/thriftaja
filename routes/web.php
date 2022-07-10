@@ -34,6 +34,7 @@ Route::controller(CartController::class)->group(function (){
     Route::post('/cart/{username}','store')->name('store-cart');
     Route::get('/des-cart/{username}/{id}','destroy')->name('des-cart');
     Route::post('/transaksi','transaksi')->name('buy')->middleware('auth');
+    Route::post('batal-transaksi/{barang:slug}','cancel')->name('cancel')->middleware('auth');
 });
 // Route::get('/thrift/barang()',[PageController::class,'category']);
 

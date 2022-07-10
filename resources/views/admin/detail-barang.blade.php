@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
-<div class="d-flex h-100 ml-3" style="width: 18rem;">
-    <img src="{{asset('storage/image/'.$barang->foto)}}" class="card-img-top" alt="...">
+<div class="d-flex h-100 ml-3">
+    <img src="{{asset('storage/image/'.$barang->foto)}}" class="w-25 card-img-top h-100" alt="...">
     <div class="card-body">
       <h5 class="card-title">Nama Barang : {{$barang->nama_barang}}</h5>
       <p>Harga : Rp.{{ number_format($barang->harga,0,'.',',')}}</p>

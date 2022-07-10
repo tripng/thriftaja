@@ -11,6 +11,7 @@ use App\Models\RincianBarang;
 use App\Models\RincianPengiriman;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 
 class CartController extends Controller
 {
@@ -97,5 +98,23 @@ class CartController extends Controller
                 'order' => RincianBarang::where('order_number','=',$ordernumber)->get(),
             ]);
         }
+    }
+
+    public function cancel(Request $request,Barang $barang){
+        $rb = RincianBarang::where('barang_id','=',$barang->id)->first();
+        $t = Transaksi::where('order_number','=',$rb->order_number)->first();
+        $user = User::where('id','=',auth()->user()->id)->first();
+        $rp = RincianPengiriman::where('id','=',$t->rincian_pengiriman_id)->first();
+        $allrb = RincianBarang::where('order_number','=',$rb->order_number)->get();
+
+        $barang->increment('stok',$rb->amount);
+        $user->increment('payaja',(float)Str::squish(preg_replace('/([a-z])|(\.)/i','',$t->total)));
+        $rb->delete();
+        $t->delete();
+        $rp->delete();
+        foreach($allrb as $rincian){
+            $rincian->delete();
+        }
+        return redirect()->route('pesanan_saya')->with('success','Transaksi Berhasil Dibatalkan');
     }
 }

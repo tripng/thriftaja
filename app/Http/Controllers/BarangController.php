@@ -109,20 +109,23 @@ class BarangController extends Controller
 
     public function update(Request $request, barang $barang)
     {
-
         $validate = $request->validate([
             'kode_barang' => 'required',
             'nama_barang' => 'required',
             'harga' => 'required',
             'stok' => 'required',
-            'foto' => 'required',
             'keterangan' => 'required',
         ]);
 
+        
         $validate['category_id'] = $request->category_id;
         $validate['slug'] = Str::of($request->nama_barang)->slug('-');
-        $validate['foto'] = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storePubliclyAs('image',$request->file('foto')->getClientOriginalName(),'public');
+        if(isset($request->foto)){
+            $validate['foto'] = $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storePubliclyAs('image',$request->file('foto')->getClientOriginalName(),'public');
+        }else{
+            $validate['foto'] = $barang->foto;
+        }
         $barang->update($validate);
 
         return redirect()->route('barang.index')->with('success','barang updated successfully');

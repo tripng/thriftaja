@@ -11,6 +11,7 @@ use App\Models\RincianBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 
 class PageController extends Controller
 {
@@ -128,9 +129,11 @@ class PageController extends Controller
         }
         $barang = $orders->flatten();
         // foreach($transaksi as $index=>$t){
-        // }
+            // }
+            // if(Carbon::create(auth()->user()->created_at)->addMinutes(15) > now()){
+        return view('landingpage.order',[
+            'transaksi' => $transaksi,
+        ])->with('i', (request()->input('page', 1) - 1) * 5);
         
-        return view('landingpage.order',compact('transaksi'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
