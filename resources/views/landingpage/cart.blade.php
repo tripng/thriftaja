@@ -18,8 +18,8 @@
                                 @foreach($cart as $c)
                                 <tr>
                                     <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="{{asset('img/shopping-cart/cart-3.jpg')}}" alt="">
+                                        <div class="product__cart__item__pic w-50">
+                                            <img src="{{asset('storage/image/'.$c->barang->foto)}}" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>{{$c->barang->nama_barang}}</h6>
@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price clstotal" id="total{{$loop->iteration}}">Rp {{number_format($c->barang->harga,0,',','.')}}</td>
+                                    <td class="cart__price clstotal" id="total{{$loop->iteration}}">Rp{{number_format($c->barang->harga,0,',','.')}}</td>
                                     <td class="cart__close">
                                         <button class="btn btn-sm" data-toggle="modal" data-target="#exampleModal{{$c->barang->id}}" ><i class="fa fa-close"></i>
                                         </button>
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <a class="btn btn-primary" href="{{ route('des-cart',[auth()->user()->username,$c->id])}}">Ubah</a>
+                                        <a class="btn btn-primary" href="{{ route('des-cart',[auth()->user()->username,$c->id])}}">Hapus</a>
                                         </div>
                                     </div>
                                     </div>
@@ -86,11 +86,11 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Total <span id="total_harga">Rp {{number_format($count_barang->sum(),0,',','.')}}</span></li>
+                        <li>Total <span id="total_harga">Rp{{number_format($count_barang->sum(),0,',','.')}}</span></li>
                     </ul>
                     <form method="get" action="{{route('checkout',auth()->user()->username)}}">
                         @csrf
-                        <input type="hidden" name="id" value="@foreach($cart as $c){{"$c->id".','}}@endforeach">
+                        <input type="hidden" name="id" value="@foreach($cart as $c){{"$c->barang_id".','}}@endforeach">
                         <input type="hidden" name="quantity" id="quantity_item" value="">
                         <input type="hidden" name="total" id="value_total" value="">
                         <input type="hidden" name="harga_barang" id="harga_barang" value="">

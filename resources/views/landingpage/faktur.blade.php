@@ -52,7 +52,7 @@
                         <span class="checkmark"></span>
                     </label>
                 </div> --}}
-                <a href="{{route('cart',[auth()->user()->username])}}" class="site-btn">Oke</a>
+                <a href="{{route('pesanan_saya')}}" class="site-btn mx-auto text-center">Oke</a>
             </div>
         </div>
     </div>

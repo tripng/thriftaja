@@ -17,7 +17,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            // 'name' => $this->faker->name(),
+            // 'name' => ['Laptop','Handphone','Video Games','Pendingin Ruangan','Tv','Elektronik Dapur','Baterai','Lampu','Speaker','Remot Kontrol'],
             'slug' => $this->faker->slug(),
         ];
     }

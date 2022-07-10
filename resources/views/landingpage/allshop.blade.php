@@ -188,7 +188,7 @@
                                 <div class="product__item">
                                     <a href="{{route('detail',[
                                         'barang' => $b->slug,
-                                    ])}}"><div class="product__item__pic set-bg" data-setbg="img/product/product-14.jpg">
+                                    ])}}"><div class="product__item__pic set-bg" data-setbg="{{asset('storage/image/'.$b->foto)}}">
                                     </div></a>
                                     <div class="product__item__text">
                                         <h6>{{$b->nama_barang}}</h6>

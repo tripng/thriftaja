@@ -5,7 +5,7 @@
     <div id="carouselExampleSlidesOnly" class="carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('img/projek/l1.jpg') }}" class="d-block w-100" alt="..." style="background-size: contain">
+            <img src="{{ asset('storage/image/'.$barang->foto) }}" class="d-block w-100" alt="...">
           </div>
         </div>
       </div>
@@ -47,9 +47,9 @@
                             </div>
                             <div class="product__details__last__option">
                                 <ul>
-                                    <li><span>Kode:</span> 3812912</li>
-                                    <li><span>Categories:</span> Clothes</li>
-                                    <li><span>Stock:</span> 25</li>
+                                    <li><span>Kode:</span> {{$barang->kode_barang}}</li>
+                                    <li><span>Categories:</span> {{$barang->category->name}}</li>
+                                    <li><span>Stock:</span> {{$barang->stok}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -81,21 +81,9 @@
                                     <div class="product__details__tab__content">
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p>A Pocket PC is a handheld computer, which features many of the same
-                                                capabilities as a modern PC. These handy little devices allow
-                                                individuals to retrieve and store e-mail messages, create a contact
-                                                file, coordinate appointments, surf the internet, exchange text messages
-                                                and more. Every product that is labeled as a Pocket PC must be
-                                                accompanied with specific software to operate the unit and must feature
-                                            a touchscreen and touchpad.</p>
-                                            <p>As is the case with any new technology product, the cost of a Pocket PC
-                                                was substantial during it’s early release. For approximately $700.00,
-                                                consumers could purchase one of top-of-the-line Pocket PCs in 2003.
-                                                These days, customers are finding that prices have become much more
-                                                reasonable now that the newness is wearing off. For approximately
-                                            $350.00, a new Pocket PC can now be purchased.</p>
+                                            <p>{{$barang->keterangan}}</p>
                                         </div>
-                                        <div class="product__details__tab__content__item">
+                                        {{-- <div class="product__details__tab__content__item">
                                             <h5>Material used</h5>
                                             <p>Polyester is deemed lower quality due to its none natural quality’s. Made
                                                 from synthetic materials, not natural like wool. Polyester suits become
@@ -104,7 +92,7 @@
                                                 make the suit look cheap. The texture of velvet is luxurious and
                                                 breathable. Velvet is a great choice for dinner party jacket and can be
                                             worn all year round.</p>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-6" role="tabpanel">

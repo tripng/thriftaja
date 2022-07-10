@@ -6,7 +6,10 @@ use App\Models\Barang;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Cart;
+use App\Models\Transaksi;
+use App\Models\RincianBarang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller
@@ -46,7 +49,11 @@ class PageController extends Controller
         if($user->gender==null || $user->email==null){
             return redirect()->route('profile')->with('toast_info','Lengkapi Profile Terlebih Dahulu');
         }
-
+        $preg = preg_replace('/([a-z])|(\.)/i','',$request->total);
+        if((float)$user->payaja <= (float)Str::squish($preg)){
+            return redirect()->route('cart',['user' => $user->username])->with('info','Uang Anda Tidak Cukup');
+        }
+        
         $id = explode(',',$request->id);
         $harga = explode(',',$request->harga_barang);
         $quantity = explode(',',$request->quantity);
@@ -110,5 +117,20 @@ class PageController extends Controller
 
             return $user->update(['foto' => $foto_profile]) ? redirect()->route('profile')->with('toast_success','Foto Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Foto Gagal Diubah');
         }
+    }
+
+    public function pesananSaya(){
+        $transaksi = Transaksi::where('user_id','=',auth()->user()->id)->latest()->get();
+        $orders = collect();
+        foreach($transaksi as $t){
+            $order = RincianBarang::where('order_number','=',$t->order_number)->get()->flatten();
+            $orders->push($order);
+        }
+        $barang = $orders->flatten();
+        // foreach($transaksi as $index=>$t){
+        // }
+        
+        return view('landingpage.order',compact('transaksi'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

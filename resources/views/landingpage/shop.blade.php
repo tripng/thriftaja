@@ -109,7 +109,7 @@
                 @foreach($barang as $b)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <a href="{{route('detail',['barang' => $b->slug])}}"><div class="product__item__pic set-bg" data-setbg="{{asset('img/projek/l'.mt_rand(1,4).'.jpg')}}">
+                        <a href="{{route('detail',['barang' => $b->slug])}}"><div class="product__item__pic set-bg" data-setbg="{{asset('storage/image/'.$b->foto)}}">
                             {{-- <span class="label">New</span> --}}
                         </div></a>
                         <div class="product__item__text">

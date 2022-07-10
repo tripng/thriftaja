@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Barang;
+use App\Models\User;
 use App\Models\Transaksi;
 use App\Models\RincianBarang;
 use App\Models\RincianPengiriman;
@@ -49,7 +50,7 @@ class CartController extends Controller
             'handphone' => 'required',
             'password' => 'required',
         ]);
-        
+
         if(Hash::check($request->password, $request->user()->password)){
             $ordernumber = Str::upper(date('ymdHis').Str::random(3));
             foreach($carts as $cart){
@@ -78,10 +79,11 @@ class CartController extends Controller
                 'total' => $request->total_payment,
                 'notes' => $validate['notes'],
             ]);
+            User::find(auth()->user()->id)->decrement('payaja',(float)Str::squish(preg_replace('/([a-z])|(\.)/i','',$request->total_payment)));
             foreach($carts as $index=>$cart){
                 $validate['amount'] = $total_barang[$index];
                 RincianBarang::create([
-                    'barang_id' => $cart->id,
+                    'barang_id' => $cart->barang_id,
                     'order_number' => $ordernumber,
                     'amount' => $validate['amount'],
                     'price' => $cart->barang->harga*$validate['amount'],
@@ -89,7 +91,7 @@ class CartController extends Controller
                 Barang::find($cart->barang_id)->decrement('stok',$total_barang[$index]);
             }
             Cart::where('user_id',auth()->id())->delete();
-
+            // dd(RincianBarang::where('order_number','=',$ordernumber)->get());
             return view('landingpage.faktur',[
                 'transaksi' => Transaksi::with('rincian_pengiriman')->where('order_number','=',$ordernumber)->first(),
                 'order' => RincianBarang::where('order_number','=',$ordernumber)->get(),
