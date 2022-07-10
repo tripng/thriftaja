@@ -18,7 +18,9 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
+                    <a href="#" class="search-switch">
+                        <img src="{{asset('img/icon/search.png')}}" alt="">
+                    </a>
                     @auth()
                     <a href="{{route('cart',[auth()->user()->username])}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>{{auth()->user()->cart()->count()}}</span></a>
                     <div class="dropdown">
@@ -47,5 +49,15 @@
     </div>
     </div>
 </header>
+
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form" action="{{route('allshop')}}">
+            <input type="text" name="search" value="{{request('search')}}" id="search-input" placeholder="Search here....."><br>
+            <button class="btn btn-light w-50 mx-auto my-3 font-weight-bold" type="submit">Search</button>
+        </form>
+    </div>
+</div>
 
 <!-- Header Section End -->

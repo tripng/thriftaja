@@ -31,4 +31,21 @@ class Barang extends Model
         return $this->hasMany(Testimoni::class);
     }
 
+    public function scopeFilter($query,array $filters){
+        $query->when($filters['search'] ?? false, function($query,$search){
+            return $query->where('nama_barang','like','%'.$search.'%')
+                        ->orWhere('keterangan','like','%'.$search.'%');
+        });
+
+        $query->when($filters['price'] ?? false, function($query,$price){
+            return $query->where('harga','<=',$price);
+        });
+
+        $query->when($filters['category'] ?? false, function($query,$category){
+            return $query->whereHas('category',function($query) use ($category){
+                $query->where('slug',$category);
+            });
+        });
+    }
+
 }

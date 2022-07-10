@@ -73,7 +73,7 @@ class PageController extends Controller
     public function allshop(){
         return view('landingpage.allshop',[
             'category' => Category::with('barang')->get(),
-            'barang' => Barang::with('category')->paginate(9), //->withQueryString()
+            'barang' => Barang::latest()->with('category')->filter(request(['search','category','price']))->paginate(9), //->withQueryString()
         ]);
     }
     public function category(){

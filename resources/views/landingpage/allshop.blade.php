@@ -18,8 +18,11 @@
             <div class="col-lg-3">
                 <div class="shop__sidebar">
                     <div class="shop__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
+                        <form action="/allshop">
+                            @if(request('category'))
+                                <input type="hidden" name="category" value="{{request('category')}}">
+                            @endif
+                            <input type="text" placeholder="Search..." name="search">
                             <button type="submit"><span class="icon_search"></span></button>
                         </form>
                     </div>
@@ -34,7 +37,7 @@
                                         <div class="shop__sidebar__categories">
                                             <ul class="nice-scroll">
                                                 @foreach($category as $c)
-                                                    <li><a href="#">{{$c->name}} ({{$c->barang->count()}})</a></li>
+                                                    <li><a href="/allshop?category={{$c->slug}}">{{$c->name}} ({{$c->barang->count()}})</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -68,12 +71,12 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__price">
                                             <ul>
-                                                <li><a href="#">$0.00 - $50.00</a></li>
-                                                <li><a href="#">$50.00 - $100.00</a></li>
-                                                <li><a href="#">$100.00 - $150.00</a></li>
-                                                <li><a href="#">$150.00 - $200.00</a></li>
-                                                <li><a href="#">$200.00 - $250.00</a></li>
-                                                <li><a href="#">250.00+</a></li>
+                                                <li><a href="/allshop?price=50000">Rp 0 - Rp 50.000</a></li>
+                                                <li><a href="/allshop?price=100000">Rp 50.000 - Rp 100.000</a></li>
+                                                <li><a href="/allshop?price=150000">Rp 100.000 - Rp 150.000</a></li>
+                                                <li><a href="/allshop?price=200000">Rp 150.000 - Rp 200.000</a></li>
+                                                <li><a href="/allshop?price=250000">Rp 200.000 - Rp 250.000</a></li>
+                                                <li><a href="/allshop">Rp 250.000+</a></li>
                                             </ul>
                                         </div>
                                     </div>
