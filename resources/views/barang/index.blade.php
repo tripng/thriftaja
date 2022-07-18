@@ -62,6 +62,30 @@
                                         </a> --}}
                                     </td>
                                 </tr>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        ...
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <div class="d-flex button gap-2">
+                                          <form action="{{ route('barang.destroy',$m->id) }}" class="d-inline" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">Hapus</button>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -71,28 +95,4 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          {{-- <form action="{{ route('barang.destroy',$m->id) }}" class="d-inline" method="POST"> --}}
-            {{-- @csrf --}}
-            {{-- @method('DELETE') --}}
-          <button type="button" class="btn btn-primary">Hapus</button>
-          {{-- </form> --}}
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection

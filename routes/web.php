@@ -11,10 +11,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/contact', function () {
     return view('landingpage/contact');
-});
+})->name('kontakthriftaja');
 // Landing Page
 Route::controller(PageController::class)->group(function (){
     Route::get('/','index');
@@ -27,7 +28,7 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/shop/{barang:slug}','detailBarang')->name('detail');
     Route::get('/profile','profile')->name('profile')->middleware('auth');
     Route::post('/setting','update')->name('setting');
-    Route::get('/cart/{user:username}','cart')->name('cart');
+    Route::get('/cart/{user:username}','cart')->name('cart')->middleware(['verified']);
     Route::get('/pesanan','pesananSaya')->name('pesanan_saya');
     Route::get('/komentar/{barang:slug}','comment')->name('comment')->middleware('auth');
 });
@@ -51,21 +52,15 @@ Route::controller(AdminController::class)->group(function (){
 Route::resource('/barang',BarangController::class)->middleware('admin');
 Route::resource('/categories',CategoryController::class)->middleware('admin');
 
-Route::controller(LoginController::class)->group(function (){
-    Route::get('/login','index')->name('login')->middleware('guest');
-    Route::post('/auth','authenticate');
-    Route::get('/logout','logout');
-    Route::get('/resetpassword','resetPassword')->name('resetpassword')->middleware('guest');
-});
-
-Route::controller(RegisterController::class)->group(function (){
-    Route::get('/register','index');
-    Route::post('/register','store')->name('registrasi');
-});
-
 Route::controller(GoogleController::class)->group(function (){
-    Route::get('auth/google','redirectToGoogle')->name('google.login');
-    Route::get('auth/google/callback','handleGoogleCallback')->name('google.callback');
+    Route::get('login/google','redirectToGoogle')->name('google.login');
+    Route::get('login/google/callback','handleGoogleCallback')->name('google.callback');
+});
+Route::controller(ContactController::class)->group(function (){
+    Route::post('/send-contact','sendContact')->name('send-contact');
 });
 
 Route::resource('/rating',RatingController::class)->middleware('auth');
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

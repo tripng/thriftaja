@@ -35,10 +35,10 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-3">
-                            <div class="font-weight-bold">Gender</div>
+                            <div class="font-weight-bold">Genre</div>
                         </div>
                         <div class="col-md-6">
-                            <div id="value_genre">{{auth()->user()->gender}}</div>
+                            <div id="value_genre">{{auth()->user()->genre}}</div>
                         </div>
                         <div class="col-md">
                             <button type="button" class="text-purple font-weight-bold btn btn-sm" id="genreChange" data-toggle="modal" data-target="#jenkel">
@@ -59,6 +59,11 @@
                             </button>
                         </div>
                     </div>
+                    @if(!auth()->user()->hasVerifiedEmail())
+                    <div class="verify text-danger">
+                        *email belum terverifikasi <a href="/email/verify" class="text-danger border-1 font-weight-bold">Verifikasi Sekarang</a>
+                    </div> 
+                    @endif
                     <div class="row mt-4">
                         <div class="col-md-3">
                             <div class="font-weight-bold">Phone Number</div>

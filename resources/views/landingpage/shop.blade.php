@@ -38,7 +38,7 @@
     </div>
     {{-- akhir kategori --}}
     {{-- product --}}
-    <div class="row product__filter ">
+    {{-- <div class="row product__filter ">
         <div class="col-lg-12 margin-tb mt-4 ">
             <div class="pull-left">
                 <h5 class="font-weight-bold">Products</h5>
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- akhir product --}}
     {{-- recomendation --}}
     <div class="row product__filter">

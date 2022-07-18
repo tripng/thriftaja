@@ -12,7 +12,7 @@
                     <ul>
                         <li class="{{Request::is('/') || Request::is('/home') ? 'active' : ''}}"><a href="{{ url('/') }}">Home</a></li>
                         <li class="{{Request::is('shop') || Request::is('allshop') ? 'active' : ''}}"><a href="{{ url('/shop') }}">Shop</a></li>
-                        <li class="{{Request::is('contact') ? 'active' : ''}}"><a href="{{ url('/contact') }}">Contacts</a></li>
+                        <li class="{{Request::is('kontakthriftaja') ? 'active' : ''}}"><a href="{{ route('kontakthriftaja') }}">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
@@ -32,12 +32,19 @@
                             <li class="text-danger"><span class="icon-html5 mr-4 text-danger"></span>Rp {{number_format(auth()->user()->payaja,0,',','.')}}</li>
                             <hr>
                             <li><a class="dropdown-item" href="{{route('profile')}}"><span class="icon-html5 mr-3"></span>Profile</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{route('resetpassword')}}"><span class="icon-html5 mr-3"></span>Ubah Password</a></li> --}}
                             <li><a class="dropdown-item" href="{{route('pesanan_saya')}}"><span class="icon-html5 mr-3"></span>Pesanan Saya</a></li>
+                            <li><a class="dropdown-item" href="{{url('/password/reset')}}">Reset Password</a></li>
                             @can('admin')
                             <li><a class="dropdown-item" href="/admin"><span class="icon-html5 mr-3"></span>Administrasi</a></li>
                             @endcan
                             {{-- <li><a class="dropdown-item" href="#"><span class="icon-glass mr-3"></span>Settings</a></li> --}}
-                            <li><a class="dropdown-item" href="/logout"><span class="icon-flag mr-3"></span>Logout</a></li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                @csrf
+                                <button class="dropdown-item"><span class="icon-flag "></span>{{__('Logout')}}</button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 @else

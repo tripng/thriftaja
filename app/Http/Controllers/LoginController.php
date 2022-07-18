@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,27 @@ class LoginController extends Controller
 
     public function resetPassword(){
         return view('landingpage.resetpassword');
+    }
+
+    public function confirmResetPassword(Request $request){
+        $user = User::where('id','=',auth()->user()->id);
+        $validate = $request->validate([
+            'password' => 'required', 
+            'new_password' => 'required|min:5|max:20|',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        if (Hash::check($validate['password'], auth()->user()->password)) {
+            $user->update(['password' => Hash::make($request->new_password)]);
+            return redirect()->route('profile')->with('info','Password Berhasil Diubah');
+        }
+    }
+
+    public function forgotPassword(){
+        return view('landingpage.forgotPassword');
+    }
+
+    public function resetPassWithEmail(Request $request){
+        $user = User::whereEmail($request->email)->first();
     }
 }

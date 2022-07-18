@@ -3,20 +3,20 @@
  <div class="row justify-content-center w-100">
     <div class="col-lg-5">
         <main class="form-registration w-100 m-auto">
-            <h1 class="h3 mb-3 fw-normal text-center ">Create an account</h1>
+            <h1 class="h3 mb-3 fw-normal text-center ">{{ __('Register') }}</h1>
             <small class="d-block text-center mt-3">Already have an account? <a href="/login"> Login</a></small>
-            <form method="post" action="{{route('registrasi')}}">
+            <form method="post" action="{{ route('register') }}">
               @csrf
               <div class="form-floating">
-                  <label for="name">Nama</label>
+                  <label for="name">{{ __('Name') }}</label>
                 <input value="{{old('name')}}" type="text" name="name" class="form-control rounded-top 
                   @error('name') is-invalid @enderror" 
-                  id="name" placeholder="Nama">
+                  id="name" placeholder="Nama" autofocus autocomplete="name" required>
                   @error('name')
                   <div class="invalid-feedback">
                     {{$message}}
                   </div>
-                  @enderror
+                  @enderror 
               </div>
               <div class="form-floating">
                   <label for="name">Username</label>
@@ -40,16 +40,16 @@
                 <label for="jk">Jenis Kelamin</label>
                 <div class="product__details__option__size d-block">
                   <label for="l">Laki-Laki
-                      <input type="radio" value="Laki-Laki" class="@error('alamat') is-invalid @enderror" id="l" name="genre">
+                      <input type="radio" value="Laki-Laki" class="@error('genre') is-invalid @enderror" id="l" name="genre">
                   </label>
                   <label for="sm">Perempuan
-                      <input type="radio" value="Perempuan" class="@error('alamat') is-invalid @enderror" name="genre">
+                      <input type="radio" value="Perempuan" class="@error('genre') is-invalid @enderror" name="genre" id="sm">
                   </label>
-                  @error('genre')
+                  {{-- @error('genre')
                   <div class="invalid-feedback">
                     {{$message}}
                   </div>
-                  @enderror
+                  @enderror --}}
                 </div>
               </div>
               <div class="form-floating">
@@ -80,8 +80,8 @@
                   @enderror
               </div>
               <div class="form-floating">
-                  <label for="email">Email address</label>
-                <input value="{{old('email')}}" type="email" name="email" class="@error('email') is-invalid @enderror form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="email">{{__('Email Address')}}</label>
+                <input value="{{old('email')}}" type="email" name="email" class="@error('email') is-invalid @enderror form-control" id="floatingInput" placeholder="name@example.com" autocomplete="email" required>
                 @error('email')
                   <div class="invalid-feedback">
                     {{$message}}
@@ -89,8 +89,8 @@
                   @enderror
               </div>
               <div class="form-floating">
-                  <label for="password">Password</label>
-                <input type="password" name="password" class="@error('password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Password">
+                  <label for="password">{{__('Password')}}</label>
+                <input type="password" name="password" class="@error('password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Password" required autocomplete="new-password">
                 @error('password')
                   <div class="invalid-feedback">
                     {{$message}}
@@ -98,19 +98,19 @@
                   @enderror
               </div>
               <div class="form-floating">
-                <label for="conpassword">Confirm Password</label>
-                <input type="password" name="confirm_password" class="@error('confirm_password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Confirm Password">
-                @error('confirm_password')
+                <label for="conpassword">{{__('Confirm Password')}}</label>
+                <input type="password" name="password_confirmation" class="@error('confirm_password') is-invalid @enderror form-control rounded-bottom" id="password" placeholder="Confirm Password" autocomplete="new-password">
+                {{-- @error('confirm_password')
                   <div class="invalid-feedback">
                     {{$message}}
                   </div>
-                  @enderror
+                  @enderror --}}
                   <p class="d-block text center">use 8 or more characters  with a mix of letters,numbers & symbols</p> <br/>
                   <p class="d-block text center">By creating an account, you agree to our
                        <a href="#"> Terms of use</a> and <a href="#"> Privacy Policy</a>
                   </p>
               </div>
-              <button class="btn btn-lg btn-primary mt-3 d-block btn-center" type="submit">Create an account</button> <br/>
+              <button class="btn btn-lg btn-primary mt-3 d-block btn-center" type="submit">{{ __('Register') }}</button> <br/>
             </form>
         </main>
     </div>

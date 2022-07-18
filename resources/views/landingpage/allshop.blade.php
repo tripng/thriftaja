@@ -155,7 +155,7 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <div class="card">
+                            {{-- <div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                 </div>
@@ -172,7 +172,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

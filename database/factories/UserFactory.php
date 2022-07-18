@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'alamat' => $this->faker->streetName(),
             'kota' => $this->faker->cityName(),
             'kode_pos' => $this->faker->postcode(),
-            'gender' => $this->faker->randomElement(['Laki-laki','Perempuan']), 
+            'genre' => $this->faker->randomElement(['Laki-laki','Perempuan']), 
             'no' => $this->faker->phoneNumber(),
             'payaja' => $this->faker->randomElement([100000,68000000,1000000,500000]),
             'remember_token' => Str::random(10),

@@ -26,16 +26,17 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="send-contact" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email">
+                                    <input type="text" placeholder="Email" name="email">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
+                                    <textarea placeholder="Message" name="message"></textarea>
                                     <button type="submit" class="site-btn">Send Message</button>
                                 </div>
                             </div>
@@ -46,6 +47,4 @@
         </div>
     </div>
     </section>
-    <!-- Contact Section End -->
-    <script>Swal.fire('Any fool can use a computer')</script>
 @endsection
