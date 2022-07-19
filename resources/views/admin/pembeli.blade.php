@@ -21,10 +21,11 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between my-3">
                         <h4 class="card-title">Data Pembeli</h4>
-                        {{-- <a href="{{{route('barang.create')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
-                            Tambah
-                            <i class="typcn typcn-plus btn-icon-append"></i>
-                        </a> --}}
+                        <a href="{{{route('exportpd')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text d-flex gap-2"><i class="bi bi-plus-square"></i>export pdf
+                        </a>
+                        {{-- <form action="/pembeli" method="GET">
+                        <input type="search" name="search">
+                        </form> --}}
                     </div>
                     <div class="table-responsive">
                         @if ($message = Session::get('success'))

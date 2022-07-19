@@ -17,7 +17,16 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" />
+    <link rel="icon" href="{{asset('icon.ico')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('trix/trix.css')}}">
+    <script type="text/javascript" src="{{asset('trix/trix.js')}}"></script>
+    {{-- <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" /> --}}
+
+    <style>
+      span[data-trix-button-group="file-tools"]{
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div class="container-scroller">

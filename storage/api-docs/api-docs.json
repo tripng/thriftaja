@@ -1,0 +1,109 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "thriftAja API",
+        "description": "Documentation API thriftAja",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/barangs": {
+            "get": {
+                "tags": [
+                    "Barang"
+                ],
+                "operationId": "f3979310b074a021c802bd00cbe5aed5",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/barangs/{id}": {
+            "get": {
+                "tags": [
+                    "Barang"
+                ],
+                "operationId": "899ecf784bb341db496108b797070213",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Menampilkan Barang."
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "ac008d507c9429ffb9439d150d47093e",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "580571e1f990d810c97e1731e9b87e29",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success."
+                    }
+                }
+            }
+        },
+        "/api/comments": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "operationId": "27d8237c943ac163a5897ce73be74c26",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/comments/{id}": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "operationId": "fb760d4a160c221e52538aded01b0422",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success."
+                    }
+                }
+            }
+        }
+    }
+}

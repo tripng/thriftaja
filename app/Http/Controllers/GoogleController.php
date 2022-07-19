@@ -14,13 +14,12 @@ class GoogleController extends Controller
         return Socialite::driver('google')->redirect();
     }
     public function handleGoogleCallback(){
-        dd('woy');
         try{
             $user = Socialite::driver('google')->user();
             $find_user = User::where('google_id',$user->getID())->first();
             if($find_user){
                 AUTH::login($find_user);
-                return redirect()->route('home');
+                return redirect()->route('halaman-utama');
             }else{
                 $new_user = User::create([
                     'name' => $user->getName(),
@@ -30,7 +29,7 @@ class GoogleController extends Controller
                     'password' => bcrypt('12345678'),
                 ]);
                 AUTH::login($new_user);
-                return redirect()->route('home');
+                return redirect()->route('halaman-utama');
             }
         }catch(\Throwable $e){
             

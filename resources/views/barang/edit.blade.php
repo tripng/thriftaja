@@ -61,9 +61,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Keterangan</label>
+                            <label class="col-sm-3 mt-4 col-form-label">Keterangan</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="keterangan" placeholder="Keterangan">{{$barang->keterangan}}</textarea>
+                                <input id="x" type="hidden" value="{{$barang->keterangan}}" name="keterangan">
+                                <trix-editor input="x"></trix-editor>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

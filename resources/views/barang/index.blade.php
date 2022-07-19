@@ -21,8 +21,16 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between my-3">
                         <h4 class="card-title">Data Barang</h4>
-                        <a href="{{{route('barang.create')}}}" type="button" class="btn btn-primary btn-sm btn-icon-text d-flex gap-2"><i class="bi bi-plus-square"></i>Tambah
-                        </a>
+                        <div class="tombol d-flex">
+                            <a href="{{route('barang.create')}}" type="button" class="btn mx-3 btn-primary btn-sm btn-icon-text d-flex gap-2"><i class="bi bi-plus-square"></i>Tambah
+                            </a>
+                            <a href="/exportpdf" type="button" class="btn btn-primary btn-sm btn-icon-text d-flex gap-2"><i class="bi bi-plus-square"></i>export pdf
+                            </a>
+                        </div>
+                        {{-- <form action="/barang" method="GET">  
+                        
+                        <input type="search" name="search">
+                        </form> --}}
                     </div>
                     <div class="table-responsive">
                         @if ($message = Session::get('success'))
@@ -47,7 +55,7 @@
                             <tbody>
                                 @foreach ($barangs as $m)
                                 <tr>
-                                    <td> {{ ++$i }}</td>
+                                    <td> {{ $loop->iteration }}</td>
                                     <td> {{ Str::words($m->nama_barang,3)}}</td>
                                     <td> {{ $m->category->name}}</td>
                                     <td>Rp {{ number_format($m->harga,0,',','.')}}</td>

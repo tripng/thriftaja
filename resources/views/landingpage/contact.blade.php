@@ -14,12 +14,8 @@
                         </div>
                         <ul>
                             <li>
-                                <h4>America</h4>
-                                <p>195 E Parker Square Dr, Parker, CO 801 <br />+43 982-314-0958</p>
-                            </li>
-                            <li>
-                                <h4>France</h4>
-                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br />+12 345-423-9893</p>
+                                <h4>Jakarta</h4>
+                                <p>PT. Nurul Fikri Cipta Inovasi <br />+43 982-314-0958</p>
                             </li>
                         </ul>
                     </div>

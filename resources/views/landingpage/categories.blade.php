@@ -14,9 +14,9 @@
                 <div class="col-md-3 my-3">
                     <div class="card">
                         <div class="card-body p-0" style="position: relative;">
-                            <img src="{{ asset('img/projek/l1.jpg') }}" alt="">
-                            <div style=" position: absolute; top: 38%; width: 100%;">
-                                <h4 class="text-white text-center font-weight-bold">{{$category->name}}</h4>
+                            {{-- <img src="{{ asset('img/projek/l1.jpg') }}" alt=""> --}}
+                            <div>
+                                <a href="{{url('allshop?category='.$category->name)}}"><h4 class=" text-center font-weight-bold">{{$category->name}}</h4></a>
                             </div>
                         </div>
                     </div>

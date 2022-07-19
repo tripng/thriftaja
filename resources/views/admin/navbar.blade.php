@@ -7,12 +7,21 @@
       <span class="mdi mdi-menu"></span>
     </button>
     <div class="search-field d-none d-md-block">
-      <form class="d-flex align-items-center h-100" action="#">
+        @if(Route::currentRouteName() == 'barang.index')
+          <form class="d-flex align-items-center h-100" action="{{route('barang.index')}}">
+        @elseif(Route::currentRouteName() == 'admin.index')
+          <form class="d-flex align-items-center h-100" action="{{route('admin.index')}}">
+        @elseif(Route::currentRouteName() == 'categories.index')
+          <form class="d-flex align-items-center h-100" action="{{route('categories.index')}}">
+        @else
+          <form class="d-flex align-items-center h-100" action="{{route('pembeli')}}">
+        @endif
+        @csrf
         <div class="input-group">
           <div class="input-group-prepend bg-transparent">
             <i class="input-group-text border-0 mdi mdi-magnify"></i>
           </div>
-          <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+          <input type="text" class="form-control bg-transparent border-0" value="{{request('search')}}" name="search" placeholder="Search projects">
         </div>
       </form>
     </div>

@@ -17,4 +17,10 @@ class Testimoni extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query,array $filters){
+        $query->when($filters['search'] ?? false, function($query,$search){
+            return $query->where('name','like','%'.$search.'%');
+        });
+    }
 }

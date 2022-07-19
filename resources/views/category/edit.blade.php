@@ -23,6 +23,7 @@
                             <label class="col-sm-3 col-form-label">Nama Category</label>
                             <div class="col-sm-9">
                                 <input type="text" name="name" value="{{ $category->name }}" class="form-control" placeholder="Nama Barang">
+                                <input type="hidden" name="slug">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

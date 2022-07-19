@@ -8,13 +8,15 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PDF;
 
 class BarangController extends Controller
 {
     public function index(){
-        $barangs = Barang::latest()->paginate(10);
-        return view('barang.index',compact('barangs'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $barangs = Barang::latest()->with('category')->filter(request(['search','category','price']))->paginate(9);
+        return view('barang.index',[
+            'barangs' => $barangs,
+        ]);
     }
 
     /**
@@ -150,5 +152,12 @@ class BarangController extends Controller
         }
         Barang::destroy($barang->id);
         return redirect()->route('barang.index')->with('success','barang deleted successfully');
+    }
+
+    public function exportpdf(){
+        $data = barang::all();
+        view()->share('data',$data);
+        $pdf = PDF::loadview('databarang-pdf');
+        return $pdf->download('data.pdf');
     }
 }

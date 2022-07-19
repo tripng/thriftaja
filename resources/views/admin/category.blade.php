@@ -52,8 +52,8 @@
                                     <td>{{$category->barang->count()}}</td>
                                     {{-- <td><img src="{{asset('storage/image/'.$m->foto)}}" alt=""></td> --}}
                                     <td>
-                                        <a class="btn btn-info btn-sm" href="/categories/{{$category->slug}}/edit">
-                                            <i class="bi bi-eye"></i>
+                                        <a class="btn btn-warning btn-sm" href="/categories/{{$category->slug}}/edit">
+                                            <i class="bi bi-pencil"></i>
                                         </a>
                                             <button class="btn btn-danger btn-sm" onclick="bokuModal({{$loop->iteration}})" title="Delete Category">
                                                 <i class="bi bi-trash"> </i>

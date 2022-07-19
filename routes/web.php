@@ -13,12 +13,13 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ContactController;
 
+
 Route::get('/contact', function () {
     return view('landingpage/contact');
 })->name('kontakthriftaja');
 // Landing Page
 Route::controller(PageController::class)->group(function (){
-    Route::get('/','index');
+    Route::get('/','index')->name('halaman-utama');
     Route::get('/home','index');
     Route::get('/shop','shop');
     // Route::post('/checkout/{user:username}','checkout')->middleware('auth')->name('checkout');
@@ -64,3 +65,8 @@ Route::resource('/rating',RatingController::class)->middleware('auth');
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('barangs', 'ApiBarangsController');
+
+Route::get('/exportpdf',[BarangController::class,'exportpdf'])->name('exportpdf');
+Route::get('/exportpd',[AdminController::class,'exportpd'])->name('exportpd');

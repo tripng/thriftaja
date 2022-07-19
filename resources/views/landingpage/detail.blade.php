@@ -5,7 +5,7 @@
     <div id="carouselExampleSlidesOnly" class="carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('storage/image/'.$barang->foto) }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('storage/image/'.$barang->foto) }}" class="d-block w-50 mx-auto" alt="...">
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
                                     <div class="product__details__tab__content">
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p>{{$barang->keterangan}}</p>
+                                            <p>{!!$barang->keterangan!!}</p>
                                         </div>
                                         {{-- <div class="product__details__tab__content__item">
                                             <h5>Material used</h5>

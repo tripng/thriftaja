@@ -1,7 +1,7 @@
 <footer class="footer mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            {{-- <div class="col-lg-2 col-md-2 col-sm-2">
                 <div class="footer__about">
                     <div class="footer__logo">
                         <a href="#"><img src="{{asset('img/thriftaja.png')}}" alt=""></a>
@@ -43,7 +43,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col-lg-12 text-center">

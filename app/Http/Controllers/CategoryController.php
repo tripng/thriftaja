@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->paginate(10);
+        $categories = Category::filter(request(['search']))->paginate(10);
         return view('admin.category',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -80,12 +80,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $request->validate([
+        $valid = $request->validate([
             'name' => 'required',
             'slug' => 'min:0',
         ]);
-        $validate['slug'] = Str::of($request->name)->slug('-');
-        $category->update($request->all());
+        $valid['slug'] = Str::of($request->name)->slug('-');
+        $category->update($valid);
         return redirect()->route('categories.index')->with('success','Category updated successfully');
     }
 

@@ -79,7 +79,7 @@ class PageController extends Controller
         ]);
     }
     public function category(){
-        $categories = Category::latest()->paginate(10);
+        $categories = Category::all();
         return view('landingpage.categories',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

@@ -20,20 +20,19 @@
                 <h5 class="font-weight-bold">Categories</h5>
             </div>
             <div class="">
-                <a class="text-purple font-weight-bold" href="#"> View All</a>
+                <a class="text-purple font-weight-bold" href="{{url('/category')}}"> View All</a>
             </div>
         </div>
-        <div class="d-flex justify-content-evenly mt-2">
-            @foreach ($categories as $category)
-            <div class="col-lg-3 ">
-                <div class="card d-block mx-auto">
-                    <a href=""><img src="img/projek/{{$category_img->random()}}" class="card-img-top" alt="..."></a>
-                    <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>{{$category->name}}</h5>
+        <div class="mt-2 w-100">
+            <div class="row d-flex justify-content-between">
+                @foreach ($categories as $category)
+                <div class="col-lg-3 text-center">
+                    <div class="card pt-2">
+                        <a href="{{url('allshop?category='.$category->name)}}"><p class="font-weight-bold">{{$category->name}}</p></a>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
     {{-- akhir kategori --}}

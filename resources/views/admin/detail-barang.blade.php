@@ -7,7 +7,7 @@
       <p>Harga : Rp.{{ number_format($barang->harga,0,'.',',')}}</p>
       <p>Kode Barang : {{$barang->kode_barang}}</p>
       <p>Stok : {{$barang->stok}}</p>
-      <p class="card-text">Keterangan :{{$barang->keterangan}}</p>
+      <p class="card-text">Keterangan :{!!$barang->keterangan!!}</p>
       <div class="d-flex button gap-2">
         <form action="{{ route('barang.destroy',$barang->id) }}" class="d-inline" method="POST">
           @csrf
