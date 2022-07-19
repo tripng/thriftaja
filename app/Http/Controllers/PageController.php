@@ -50,7 +50,7 @@ class PageController extends Controller
     }
     public function checkout(Request $request,$username){
         $user = User::where('username','=',$username)->first();
-        if($user->gender==null || $user->email==null){
+        if($user->genre==null || $user->email==null){
             return redirect()->route('profile')->with('toast_info','Lengkapi Profile Terlebih Dahulu');
         }
         $preg = preg_replace('/([a-z])|(\.)/i','',$request->total);
@@ -86,7 +86,7 @@ class PageController extends Controller
     public function detailBarang(Barang $barang){
         return view('landingpage.detail',[
             'barang' => $barang,
-            'penilaian' => Testimoni::with('barang')->where('barang_id','=',$barang->id)->get(),
+            'penilaian' => Testimoni::where('barang_id','=',$barang->id)->get(),
             'related' => Barang::where('category_id','=',$barang->category_id)->whereNot('slug','=',$barang->slug)->paginate(4),
         ]);
     }

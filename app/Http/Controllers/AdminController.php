@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.home',[
-            'user' => User::all(),
-        ]);
+        $user = User::latest()->paginate(10);
+        return view('admin.home',compact('user'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function detailBarang(Barang $barang){
         return view('admin.detail-barang',[

@@ -113,12 +113,19 @@
                                                 <div class="col-md-1">
                                                     <img src="{{ asset('storage/profile/'.$p->user->foto) }}" alt="" class="rounded-circle w-100">
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <h5 class="font-weight-bold">{{$p->user->username}}</h5>
-                                                    <p>5 days ago</p>
                                                 </div>
                                                 <div class="col-md p-0">
-                                                    bintang
+                                                    <div class="rating">
+
+                                                        @foreach(range(1,5) as $r)
+                                                            @if($p->rating >= $r)
+                                                                    <i class="fa fa-star text-warning"></i>
+                                                            @else
+                                                                <i class="fa fa-star-o"></i>
+                                                            @endif
+                                                        @endforeach
                                                     <p>{{$p->komentar}}</p>
                                                 </div>
                                             </div>
@@ -160,11 +167,6 @@
     <section class="related spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="related-title">Related Product</h3>
-                </div>
-            </div>
-            <div class="row">
                 @foreach($related as $rel)
                     <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                         <div class="product__item">
@@ -202,13 +204,13 @@
                                             echo '<i class="fa fa-star-o"></i>';
                                         }
                                     @endphp
-                                @endforeach
+                                    @endforeach
                                 </div>
                                 <h5>Rp {{number_format($rel->harga,0,',','.')}}</h5>
                             </div>
                         </div>
                     </div>
-                @endforeach()
+                @endforeach
             </div>
         </div>
     </section>

@@ -48,7 +48,7 @@
                                 @foreach ($barangs as $m)
                                 <tr>
                                     <td> {{ ++$i }}</td>
-                                    <td> {{ $m->nama_barang}}</td>
+                                    <td> {{ Str::words($m->nama_barang,3)}}</td>
                                     <td> {{ $m->category->name}}</td>
                                     <td>Rp {{ number_format($m->harga,0,',','.')}}</td>
                                     <td>{{ $m->stok}}</td>
@@ -56,43 +56,55 @@
                                     <td>
                                         <a href="{{route('detail-barang',['barang' => $m->slug ])}}" class="btn btn-sm btn-info" ><i class="bi bi-eye"></i></a>
                                         <a href="/barang/{{$m->id}}/edit" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-trash"> </i></button>
+                                        <button type="button" class="btn btn-sm btn-danger" onclick="bokuModal({{$loop->iteration}})"><i class="bi bi-trash"> </i></button>
                                         {{-- <a class="btn btn-info btn-sm" href="/barang/{{$m->id}}/edit">
                                             Edit<i class="bi bi-eye"></i>
                                         </a> --}}
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        ...
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <div class="d-flex button gap-2">
-                                          <form action="{{ route('barang.destroy',$m->id) }}" class="d-inline" method="POST">
+
+                                <div class="bokuModal{{$loop->iteration}} shadow bg-light w-50" 
+                                    style="
+                                        display: none; 
+                                        position: fixed;
+                                        z-index:10;
+                                        left: 25%;
+                                        top: 25%;">
+                                    <h3 class="text-center" style="margin-top: 20px;">Apakah Anda Yakin Ingin Menghapus {{$m->nama_barang}}?</h3>
+                                    <div class="bokuConfirm d-flex justify-content-center">
+                                        <form action="{{ route('barang.destroy',$m->id) }}" class="d-inline" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger">Hapus</button>
+                                            <button class="btn btn-danger shadow text-light m-3">Hapus</button>
                                         </form>
-                                      </div>
+                                        <button type="button" class="btn bg-info shadow m-3" onclick="bokuModalExit({{$loop->iteration}})">Tidak</button>
                                     </div>
-                                  </div>
                                 </div>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="row mt-4">
+                            <div class="col-lg-12">
+                                {{$barangs->links()}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    function bokuModal(iteration){
+        const bokuModal = document.querySelector('.bokuModal'+(iteration).toString());
+        bokuModal.style.display = 'block'
+    }
+    function bokuModalExit(iteration){
+        const bokuModal = document.querySelector('.bokuModal'+(iteration).toString());
+        bokuModal.style.display = 'none' 
+    }
+</script>
 @endsection
+

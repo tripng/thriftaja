@@ -53,8 +53,8 @@ Route::resource('/barang',BarangController::class)->middleware('admin');
 Route::resource('/categories',CategoryController::class)->middleware('admin');
 
 Route::controller(GoogleController::class)->group(function (){
-    Route::get('login/google','redirectToGoogle')->name('google.login');
-    Route::get('login/google/callback','handleGoogleCallback')->name('google.callback');
+    Route::get('auth/google','redirectToGoogle')->name('google.login');
+    Route::get('google/callback','handleGoogleCallback')->name('google.callback');
 });
 Route::controller(ContactController::class)->group(function (){
     Route::post('/send-contact','sendContact')->name('send-contact');

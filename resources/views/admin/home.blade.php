@@ -87,6 +87,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="row mt-4">
+                  <div class="col-lg-12">
+                      {{$user->links()}}
+                  </div>
+              </div>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-          <a class="dropdown-item" href="{{ url('/home') }}">
+          <a class="dropdown-item" href="{{ url('/') }}">
             <i class="mdi mdi-cached me-2 text-success"></i> Home </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('profile')}}">

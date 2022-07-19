@@ -55,22 +55,52 @@
                                         <a class="btn btn-info btn-sm" href="/categories/{{$category->slug}}/edit">
                                             <i class="bi bi-eye"></i>
                                         </a>
+                                            <button class="btn btn-danger btn-sm" onclick="bokuModal({{$loop->iteration}})" title="Delete Category">
+                                                <i class="bi bi-trash"> </i>
+                                            </button>
+                                    </td>
+                                </tr>
+
+                                <div class="bokuModal{{$loop->iteration}} shadow bg-light w-50" 
+                                    style="
+                                        display: none; 
+                                        position: fixed;
+                                        z-index:10;
+                                        left: 25%;
+                                        top: 25%;">
+                                    <h3 class="text-center" style="margin-top: 20px;">Apakah Anda Yakin Ingin Menghapus {{$category->name}}?</h3>
+                                    <div class="bokuConfirm d-flex justify-content-center">
                                         <form action="{{ route('categories.destroy',$category->slug) }}" class="d-inline" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Menhapus category??')" title="Delete Category">
-                                                <i class="bi bi-trash"> </i>
-                                            </button>
+                                            <button class="btn bg-danger shadow text-light m-3">Iya</button>
                                         </form>
-                                    </td>
-                                </tr>
+                                        <button type="button" class="btn bg-info shadow m-3" onclick="bokuModalExit({{$loop->iteration}})">Tidak</button>
+                                    </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="row mt-4">
+                            <div class="col-lg-12">
+                                {{$categories->links()}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function bokuModal(iteration){
+        const bokuModal = document.querySelector('.bokuModal'+(iteration).toString());
+        bokuModal.style.display = 'block'
+    }
+    function bokuModalExit(iteration){
+        const bokuModal = document.querySelector('.bokuModal'+(iteration).toString());
+        bokuModal.style.display = 'none' 
+    }
+</script>
 @endsection

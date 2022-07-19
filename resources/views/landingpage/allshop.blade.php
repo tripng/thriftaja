@@ -71,11 +71,11 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__price">
                                             <ul>
-                                                <li><a href="/allshop?price=50000">Rp 0 - Rp 50.000</a></li>
-                                                <li><a href="/allshop?price=100000">Rp 50.000 - Rp 100.000</a></li>
-                                                <li><a href="/allshop?price=150000">Rp 100.000 - Rp 150.000</a></li>
-                                                <li><a href="/allshop?price=200000">Rp 150.000 - Rp 200.000</a></li>
-                                                <li><a href="/allshop?price=250000">Rp 200.000 - Rp 250.000</a></li>
+                                                <li><a href="/allshop?price=50000"> < Rp 50.000</a></li>
+                                                <li><a href="/allshop?price=100000"> < Rp 100.000</a></li>
+                                                <li><a href="/allshop?price=150000"> < Rp 150.000</a></li>
+                                                <li><a href="/allshop?price=200000"> < Rp 200.000</a></li>
+                                                <li><a href="/allshop?price=250000"> < Rp 250.000</a></li>
                                                 <li><a href="/allshop">Rp 250.000+</a></li>
                                             </ul>
                                         </div>
