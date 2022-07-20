@@ -38,7 +38,7 @@
                             <thead>
                                 <tr>
                                     <th> No </th>
-                                    {{-- <th> Nama Pembeli </th> --}}
+                                    <th> Nama Pembeli </th>
                                   {{--  <th> Kategori Barang </th> --}}
                                     <th> Waktu </th>
                                     <th> Total Harga </th>
@@ -57,8 +57,8 @@
                                     <td> {{ $loop->iteration }}</td>
                                     <td> {{ $t->user->name}}</td>
                                     <td> {{ $t->created_at}}</td>
-                                    <td>{{$t->total}}</td>
-                                    <td>{{ $t->notes}}</td>
+                                    <td> {{$t->total}} </td>
+                                    <td> {{ $t->notes}} </td>
                                     <td>
                                         @foreach($namabarang as $s)
                                             {{$s->barang->nama_barang}} <br><br>

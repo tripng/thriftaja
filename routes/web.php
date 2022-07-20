@@ -30,7 +30,7 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/profile','profile')->name('profile')->middleware('auth');
     Route::post('/setting','update')->name('setting');
     Route::get('/cart/{user:username}','cart')->name('cart')->middleware(['verified']);
-    Route::get('/pesanan','pesananSaya')->name('pesanan_saya');
+    Route::get('/pesanan','pesananSaya')->name('pesanan_saya')->middleware(['verified']);
     Route::get('/komentar/{barang:slug}','comment')->name('comment')->middleware('auth');
 });
 

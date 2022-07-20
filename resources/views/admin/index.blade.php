@@ -26,6 +26,10 @@
       span[data-trix-button-group="file-tools"]{
         display: none;
       }
+      .page-item.active span{
+        background:#454545 !important;
+        border:none;
+      }
     </style>
   </head>
   <body>

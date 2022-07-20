@@ -1,10 +1,12 @@
 @extends('landingpage.index')
 @section('content')
 <div class="container">
+    @if($transaksi->count()==0) <h3 class="alert-info py-4 text-center">Anda Belum Melakukan Pesanan.</h3> @endif
     @foreach($transaksi as $t)
     @php
         $barang = App\Models\RincianBarang::where('order_number','=',$t->order_number)->get()->flatten();
         @endphp
+        
         <div class="card my-3">
             @foreach($barang as $b)
             @php

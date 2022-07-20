@@ -179,10 +179,10 @@
                     <label for="name">Name</label>
                     <div class="product__details__option__size d-block">
                         <label for="l">Laki-Laki
-                            <input type="radio" value="laki-Laki" id="l" name="gender">
+                            <input type="radio" value="Laki-Laki" id="l" name="genre">
                         </label>
                         <label for="sm">Perempuan
-                            <input type="radio" value="perempuan" id="sm" name="gender">
+                            <input type="radio" value="Perempuan" id="sm" name="genre">
                         </label>
                         <input type="hidden" name="id" value="{{auth()->user()->id}}">
                       </div>

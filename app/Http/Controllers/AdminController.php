@@ -36,9 +36,6 @@ class AdminController extends Controller
             $orders->push($order);
         }
         $barang = $orders->flatten();
-        // foreach($transaksi as $index=>$t){
-        //     dump($t->order_number);
-        // }
         return view('admin.pembeli',compact('barang','transaksi'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

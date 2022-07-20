@@ -23,7 +23,7 @@
               <img src="{{asset('assets/images/dashboard/circle.svg')}}" class="card-img-absolute" alt="circle-image" />
               <h4 class="font-weight-normal mb-3">Keuntungan <i class="mdi mdi-chart-line mdi-24px float-right"></i>
               </h4>
-              <h2 class="mb-5">Rp {{number_format($total->sum(),0,'.',',')}}</h2>
+              <h2 class="mb-5">Rp {{number_format($total->sum(),0,',','.')}}</h2>
             </div>
           </div>
         </div>

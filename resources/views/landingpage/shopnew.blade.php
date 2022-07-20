@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="mt-2 w-100">
-            <div class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-between ">
                 @foreach ($categories as $category)
                 <div class="col-lg-3 text-center">
                     <div class="card p-3">

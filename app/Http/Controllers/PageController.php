@@ -108,8 +108,8 @@ class PageController extends Controller
         else if($request->name){
             return $user->update(['name' => $request->name]) ? redirect()->route('profile')->with('toast_success','Name Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Name Tidak Dapat Diubah');
         }
-        else if($request->gender){
-            return $user->update(['gender' => $request->gender]) ? redirect()->route('profile')->with('toast_success','Gender Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Gender Tidak Dapat Diubah');
+        else if($request->genre){
+            return $user->update(['genre' => $request->genre]) ? redirect()->route('profile')->with('toast_success','Genre Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Genre Tidak Dapat Diubah');
         }
         else if($request->postcode){
             return $user->update(['kode_pos' => $request->postcode]) ? redirect()->route('profile')->with('toast_success','Kode Pos Berhasil Diubah') : redirect()->route('profile')->with('toast_error','Kode Pos Tidak Dapat Diubah');

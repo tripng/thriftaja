@@ -95,7 +95,7 @@
                         <input type="hidden" name="total" id="value_total" value="">
                         <input type="hidden" name="harga_barang" id="harga_barang" value="">
                         @if($cart->count() > 0)
-                        <button class="primary-btn">Proceed to checkout</button>
+                            <button class="primary-btn">Proceed to checkout</button>
                         @endif
                         @if($cart->count() == 0)
                         <a type="button" class="primary-btn text-light" data-toggle="modal" data-target="#modalInfoAddCart" >Proceed to checkout</a>

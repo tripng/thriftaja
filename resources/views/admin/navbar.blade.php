@@ -44,8 +44,10 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('profile')}}">
             <i class="bi bi-person-circle me-2 text-dark"></i> Profile </a>
-          <a class="dropdown-item" href="/logout">
-            <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
+            <form action="/logout" method="POST">
+              @csrf
+              <button class="dropdown-item"><span class="icon-flag "></span>{{__('Logout')}}</button>
+              </form>
         </div>
       </li>
       <li class="nav-item d-none d-lg-block full-screen-link">

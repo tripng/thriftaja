@@ -13,10 +13,10 @@
                 @foreach($categories as $category)
                 <div class="col-md-3 my-3">
                     <div class="card">
-                        <div class="card-body p-0">
+                        <div class="card-body p-0" style="position: relative;">
                             {{-- <img src="{{ asset('img/projek/l1.jpg') }}" alt=""> --}}
                             <div class="p-3">
-                                <a href="{{url('allshop?category='.$category->name)}}"><p class=" text-center font-weight-bold">{{$category->name}}</p></a>
+                                <a href="{{url('allshop?category='.$category->name)}}"><p class="text-center font-weight-bold my-auto">{{$category->name}}</p></a>
                             </div>
                         </div>
                     </div>
